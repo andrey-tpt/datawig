@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.utils &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">DataWig utility functions</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">log_formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">]  </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+
+<span class="n">consoleHandler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">consoleHandler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">log_formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">consoleHandler</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ColumnOverwriteException"><a class="viewcode-back" href="../../modules.html#datawig.utils.ColumnOverwriteException">[docs]</a><span class="k">class</span> <span class="nc">ColumnOverwriteException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised when an existing column of a pandas dataframe is about to be overwritten&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="stringify_list"><a class="viewcode-back" href="../../modules.html#datawig.utils.stringify_list">[docs]</a><span class="k">def</span> <span class="nf">stringify_list</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns list with elements stringified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="merge_dicts"><a class="viewcode-back" href="../../modules.html#datawig.utils.merge_dicts">[docs]</a><span class="k">def</span> <span class="nf">merge_dicts</span><span class="p">(</span><span class="n">d1</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">d2</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Merges two dicts</span>
+
+<span class="sd">    :param d1: A dictionary</span>
+<span class="sd">    :param d2: Another dictionary</span>
+<span class="sd">    :return: Merged dicts</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">d2</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="gpu_device"><a class="viewcode-back" href="../../modules.html#datawig.utils.gpu_device">[docs]</a><span class="k">def</span> <span class="nf">gpu_device</span><span class="p">(</span><span class="n">gpu_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Returns the gpu context for a given gpu device or None if that context is not available.</span>
+<span class="sd">    Use it for auto-detecting whether a gpu is available on a machine with</span>
+<span class="sd">    ctx = mx.gpu() if gpu_device() else mx.cpu()</span>
+
+<span class="sd">    :param gpu_number: number of the gpu, default 0</span>
+<span class="sd">    :return: mxnet context of a gpu or none if not available</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">gpu_number</span><span class="p">))</span>
+    <span class="k">except</span> <span class="n">mx</span><span class="o">.</span><span class="n">MXNetError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">(</span><span class="n">gpu_number</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="random_split"><a class="viewcode-back" href="../../modules.html#datawig.utils.random_split">[docs]</a><span class="k">def</span> <span class="nf">random_split</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                 <span class="n">split_ratios</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Shuffles and splits a Data frame into partitions with specified percentages of data</span>
+
+<span class="sd">    :param data_frame: a pandas DataFrame</span>
+<span class="sd">    :param split_ratios: percentages of splits</span>
+<span class="sd">    :param seed: seed of random number generator</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">split_ratios</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">split_ratios</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">sections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">split_ratios</span><span class="p">])</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">),</span> <span class="n">sections</span><span class="p">)[:</span><span class="nb">len</span><span class="p">(</span><span class="n">split_ratios</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="rand_string"><a class="viewcode-back" href="../../modules.html#datawig.utils.rand_string">[docs]</a><span class="k">def</span> <span class="nf">rand_string</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Utility function for generating a random alphanumeric string of specified length</span>
+
+<span class="sd">    :param length: length of the generated string</span>
+
+<span class="sd">    :return: random string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">string</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)])</span></div>
+
+<span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="n">marker</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">========== start: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">marker</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">========== done (</span><span class="si">%s</span><span class="s2"> s) </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">),</span> <span class="n">marker</span><span class="p">))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="MeanSymbol"><a class="viewcode-back" href="../../modules.html#datawig.utils.MeanSymbol">[docs]</a><span class="k">class</span> <span class="nc">MeanSymbol</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">EvalMetric</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Metrics tracking the mean of a symbol, the index of the symbol must be passed as argument.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">symbol_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">output_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MeanSymbol</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">output_names</span><span class="o">=</span><span class="n">output_names</span><span class="p">,</span>
+                                         <span class="n">label_names</span><span class="o">=</span><span class="n">label_names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol_index</span> <span class="o">=</span> <span class="n">symbol_index</span>
+
+<div class="viewcode-block" id="MeanSymbol.update"><a class="viewcode-back" href="../../modules.html#datawig.utils.MeanSymbol.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+        <span class="n">sym</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol_index</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_metric</span> <span class="o">+=</span> <span class="n">mx</span><span class="o">.</span><span class="n">ndarray</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sym</span><span class="p">)</span><span class="o">.</span><span class="n">asscalar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_inst</span> <span class="o">+=</span> <span class="n">sym</span><span class="o">.</span><span class="n">size</span></div></div>
+
+<div class="viewcode-block" id="AccuracyMetric"><a class="viewcode-back" href="../../modules.html#datawig.utils.AccuracyMetric">[docs]</a><span class="k">class</span> <span class="nc">AccuracyMetric</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">EvalMetric</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Metrics tracking the accuracy, the index of the discrete label must be passed as argument.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">label_index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AccuracyMetric</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-accuracy&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label_index</span> <span class="o">=</span> <span class="n">label_index</span>
+
+<div class="viewcode-block" id="AccuracyMetric.update"><a class="viewcode-back" href="../../modules.html#datawig.utils.AccuracyMetric.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+        <span class="n">chosen</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_index</span><span class="p">]</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">labels_values</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">label_index</span><span class="p">]</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum_metric</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">chosen</span> <span class="o">==</span> <span class="n">labels_values</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">labels_values</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_inst</span> <span class="o">+=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span></div></div>
+
+<div class="viewcode-block" id="LogMetricCallBack"><a class="viewcode-back" href="../../modules.html#datawig.utils.LogMetricCallBack">[docs]</a><span class="k">class</span> <span class="nc">LogMetricCallBack</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tracked the metrics specified as arguments.</span>
+<span class="sd">    Any mxnet metric whose name contains one of the argument will be tracked.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracked_metrics</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param tracked_metrics: metrics to be tracked</span>
+<span class="sd">        :param patience: if not None then if the metrics does not improve during &#39;patience&#39; number</span>
+<span class="sd">        of steps, StopIteration is raised.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracked_metrics</span> <span class="o">=</span> <span class="n">tracked_metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">tracked_metrics</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">=</span> <span class="n">patience</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">param</span><span class="o">.</span><span class="n">eval_metric</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">name_value</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">eval_metric</span><span class="o">.</span><span class="n">get_name_value</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracked_metrics</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">name_value</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">check_regression</span><span class="p">()</span>
+
+<div class="viewcode-block" id="LogMetricCallBack.check_regression"><a class="viewcode-back" href="../../modules.html#datawig.utils.LogMetricCallBack.check_regression">[docs]</a>    <span class="k">def</span> <span class="nf">check_regression</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If no improvement happens in &quot;patience&quot; number of steps then StopIteration exception is</span>
+<span class="sd">        raised. This is an ugly mechanism but it is currently the only way to support this feature</span>
+<span class="sd">        while using module api.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+
+        <span class="k">def</span> <span class="nf">convert_nans</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Found nan in metric&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">e</span>
+
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[</span><span class="n">convert_nans</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">errors</span><span class="p">):</span>
+            <span class="c1"># check that the metric has improved, e.g. that all recent metrics were worse</span>
+            <span class="n">metric_before_patience</span> <span class="o">=</span> <span class="n">errors</span><span class="p">[</span><span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">no_improvement</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">metric_before_patience</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="p">)]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">no_improvement</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;No improvement detected for </span><span class="si">{}</span><span class="s2"> epochs compared to </span><span class="si">{}</span><span class="s2"> last error &quot;</span> \
+                            <span class="s2">&quot;obtained: </span><span class="si">{}</span><span class="s2">, stopping here&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="p">,</span>
+                                                                 <span class="n">metric_before_patience</span><span class="p">,</span>
+                                                                 <span class="n">errors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                                                                 <span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">StopIteration</span></div></div>
+
+<div class="viewcode-block" id="normalize_dataframe"><a class="viewcode-back" href="../../modules.html#datawig.utils.normalize_dataframe">[docs]</a><span class="k">def</span> <span class="nf">normalize_dataframe</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Convenience function that normalizes strings of a DataFrame by converting to lower-case,</span>
+<span class="sd">    stripping spaces, keeping only alphanumeric and space.</span>
+
+<span class="sd">    :param data_frame:</span>
+<span class="sd">    :return: normalized data_frame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+            <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^a-zA-Z0-9_ </span><span class="se">\r\n\t\f\v</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="p">)</span></div>
+
+<div class="viewcode-block" id="pad_to_square"><a class="viewcode-back" href="../../modules.html#datawig.utils.pad_to_square">[docs]</a><span class="k">def</span> <span class="nf">pad_to_square</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                  <span class="n">pad</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;const&#39;</span><span class="p">,</span>
+                  <span class="n">const_val</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mx</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Given an HxWxC src image, if H!=W, resize such that new image size is</span>
+<span class="sd">    square = max(H,W).</span>
+<span class="sd">    Fill remaining rows / columns by &#39;const&#39; or by &#39;replicate&#39; border</span>
+<span class="sd">    rows / columns.</span>
+
+<span class="sd">    :param src : image as an mxnet ndarray (HxWxC)</span>
+<span class="sd">    :param pad : &#39;const&#39; or &#39;replicate&#39;</span>
+<span class="sd">        Fill remaining rows / columns by &#39;const&#39; or by &#39;replicate&#39; border</span>
+<span class="sd">        rows / columns.</span>
+<span class="sd">    :param const_val: int</span>
+<span class="sd">        The fill value to use in case of pad=&#39;const&#39;</span>
+
+<span class="sd">    :return padded image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">new_h</span><span class="p">,</span> <span class="n">new_w</span> <span class="o">=</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span>
+        <span class="n">total_pad</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">w</span>
+        <span class="n">pad_w_start</span> <span class="o">=</span> <span class="n">total_pad</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">pad_w_end</span> <span class="o">=</span> <span class="n">total_pad</span> <span class="o">-</span> <span class="n">pad_w_start</span>
+        <span class="n">pad_h_start</span><span class="p">,</span> <span class="n">pad_h_end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">new_h</span><span class="p">,</span> <span class="n">new_w</span> <span class="o">=</span> <span class="n">w</span><span class="p">,</span> <span class="n">w</span>
+        <span class="n">total_pad</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span> <span class="n">h</span>
+        <span class="n">pad_h_start</span> <span class="o">=</span> <span class="n">total_pad</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">pad_h_end</span> <span class="o">=</span> <span class="n">total_pad</span> <span class="o">-</span> <span class="n">pad_h_start</span>
+        <span class="n">pad_w_start</span><span class="p">,</span> <span class="n">pad_w_end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">src</span>
+
+    <span class="n">src_padded</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">new_h</span><span class="p">,</span> <span class="n">new_w</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">src_padded</span><span class="p">[</span><span class="n">pad_h_start</span><span class="p">:</span><span class="n">new_h</span> <span class="o">-</span> <span class="n">pad_h_end</span><span class="p">,</span>
+    <span class="n">pad_w_start</span><span class="p">:</span><span class="n">new_w</span> <span class="o">-</span> <span class="n">pad_w_end</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">src</span>
+
+    <span class="k">if</span> <span class="n">pad</span> <span class="o">==</span> <span class="s1">&#39;const&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pad_w_start</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:,</span> <span class="p">:</span><span class="n">pad_w_start</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">const_val</span>
+            <span class="k">if</span> <span class="n">pad_w_end</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:,</span> <span class="o">-</span><span class="n">pad_w_end</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">const_val</span>
+        <span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pad_h_start</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:</span><span class="n">pad_h_start</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">const_val</span>
+            <span class="k">if</span> <span class="n">pad_h_end</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[</span><span class="o">-</span><span class="n">pad_h_end</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">const_val</span>
+    <span class="k">elif</span> <span class="n">pad</span> <span class="o">==</span> <span class="s1">&#39;replicate&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pad_w_start</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:,</span> <span class="p">:</span><span class="n">pad_w_start</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+                    <span class="n">src</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pad_w_end</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:,</span> <span class="o">-</span><span class="n">pad_w_end</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+                    <span class="n">src</span><span class="p">[:,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pad_h_start</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[:</span><span class="n">pad_h_start</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+                    <span class="n">src</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pad_h_end</span><span class="p">:</span>
+                <span class="n">src_padded</span><span class="p">[</span><span class="o">-</span><span class="n">pad_h_end</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+                    <span class="n">src</span><span class="p">[</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">src_padded</span></div>
+
+
+<div class="viewcode-block" id="softmax"><a class="viewcode-back" href="../../modules.html#datawig.utils.softmax">[docs]</a><span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute softmax values for each sets of scores in x.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">e_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">e_x</span> <span class="o">/</span> <span class="n">e_x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

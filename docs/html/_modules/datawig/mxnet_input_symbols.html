@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.mxnet_input_symbols &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.mxnet_input_symbols</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.mxnet_input_symbols</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">DataWig MxNet input symbols:</span>
+<span class="sd">extract features or pass on encoded numerical representations of rows</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">gpu_device</span>
+
+
+<div class="viewcode-block" id="Featurizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.Featurizer">[docs]</a><span class="k">class</span> <span class="nc">Featurizer</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Featurizer for data that is encoded into numerical format with ColumnEncoder</span>
+<span class="sd">    Is used to feed data into mxnet compute graph</span>
+
+<span class="sd">    :param field_name: Field name of featurizer output for mxnet variable/symbols</span>
+<span class="sd">    :param latent_dim: Dimensionality of resulting features</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span> <span class="o">=</span> <span class="n">field_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field_name</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Featurizer.latent_symbol"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.Featurizer.latent_symbol">[docs]</a>    <span class="k">def</span> <span class="nf">latent_symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns mxnet Featurizer symbol</span>
+<span class="sd">        :return: Featurizer as mx.symbol</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span></div></div>
+
+
+<div class="viewcode-block" id="ImageFeaturizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.ImageFeaturizer">[docs]</a><span class="k">class</span> <span class="nc">ImageFeaturizer</span><span class="p">(</span><span class="n">Featurizer</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    ImageFeaturizer extracts image features given an image using a standard network architecture</span>
+
+<span class="sd">    :param field_name: name of the column</span>
+<span class="sd">    :param fine_tune: boolean that determines if entire image feature extraction model will be tuned</span>
+<span class="sd">    :layer_dim: list containing dimensions of fully connected layer after fwd pass through image</span>
+<span class="sd">                extraction network. The length of this list corresponds to the number of FC layers,</span>
+<span class="sd">                and the contents of the list are integers with corresponding hidden layer size</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">fine_tune</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">layer_dim</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;densenet121&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">layer_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layer_dim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1024</span><span class="p">]</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">ImageFeaturizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">layer_dim</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fine_tune</span> <span class="o">=</span> <span class="n">fine_tune</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_dim</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">layer_dim</span><span class="p">]</span>
+
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">):</span>
+            <span class="n">symbol</span><span class="p">,</span> <span class="n">arg_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_pretrained_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_symbol</span><span class="p">,</span>
+                                                             <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">arg_params</span>
+
+            <span class="k">for</span> <span class="n">hidden_dim</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_dim</span><span class="p">:</span>
+                <span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+                    <span class="n">data</span><span class="o">=</span><span class="n">symbol</span><span class="p">,</span>
+                    <span class="n">num_hidden</span><span class="o">=</span><span class="n">hidden_dim</span>
+                <span class="p">)</span>
+                <span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">symbol</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;softrelu&quot;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">symbol</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__get_pretrained_model</span><span class="p">(</span><span class="n">input_symbol</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span>
+                               <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;densenet121&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        Loads a pretrained model from gluon model zoo</span>
+
+<span class="sd">        :param input_symbol: mxnet symbol Variable with the associated name of the column</span>
+<span class="sd">        :model_name: string containing the gluon model name for loading the pretrained model</span>
+<span class="sd">                     currently supports &#39;densenet121&#39;, resnet50_v2, alexnet, and squeezenet1.0</span>
+<span class="sd">                      and &#39;resnet18_v2&#39; (default: densenet121)</span>
+<span class="sd">        :return mxnet symbol, params dictionary</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">image_network_pretrained</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span>
+                                                                       <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;image_featurizer_&#39;</span><span class="p">,</span>
+                                                                       <span class="n">ctx</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span>
+                                                                       <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">internals</span> <span class="o">=</span> <span class="n">image_network_pretrained</span><span class="p">(</span><span class="n">input_symbol</span><span class="p">)</span><span class="o">.</span><span class="n">get_internals</span><span class="p">()</span>
+
+        <span class="n">supported_models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;densenet121&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;resnet18_v2&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;resnet50_v2&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;alexnet&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;squeezenet1.0&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="n">supported_models</span><span class="p">:</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">internals</span><span class="p">[</span><span class="s1">&#39;image_featurizer_flatten0_flatten0_output&#39;</span><span class="p">]]</span>
+        <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">&#39;vgg16&#39;</span><span class="p">:</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">internals</span><span class="p">[</span><span class="s1">&#39;image_featurizer_dense0_relu_fwd_output&#39;</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Only </span><span class="si">{}</span><span class="s2"> are supported for models, got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">supported_models</span><span class="p">),</span><span class="n">model_name</span><span class="p">))</span>
+
+        <span class="c1"># feed one random input through network</span>
+        <span class="n">feat_model</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gluon</span><span class="o">.</span><span class="n">SymbolBlock</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">input_symbol</span><span class="p">,</span>
+                                          <span class="n">params</span><span class="o">=</span><span class="n">image_network_pretrained</span><span class="o">.</span><span class="n">collect_params</span><span class="p">())</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">feat_model</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)))</span>
+
+        <span class="c1"># convert to numpy</span>
+        <span class="n">sym</span> <span class="o">=</span> <span class="n">feat_model</span><span class="p">(</span><span class="n">input_symbol</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">feat_model</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">args</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">data</span><span class="p">()</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">sym</span><span class="p">,</span> <span class="n">args</span></div>
+
+
+<div class="viewcode-block" id="NumericalFeaturizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.NumericalFeaturizer">[docs]</a><span class="k">class</span> <span class="nc">NumericalFeaturizer</span><span class="p">(</span><span class="n">Featurizer</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    NumericFeaturizer, a one hidden layer neural network with relu activations</span>
+
+<span class="sd">    :param field_name: name of the column</span>
+<span class="sd">    :param latent_dim: number of hidden units</span>
+<span class="sd">    :param hidden_layers: number of hidden layers</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">hidden_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NumericalFeaturizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hidden_layers</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_symbol</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">):</span>
+                <span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+                    <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span>
+                    <span class="n">num_hidden</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">symbol</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LSTMFeaturizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.LSTMFeaturizer">[docs]</a><span class="k">class</span> <span class="nc">LSTMFeaturizer</span><span class="p">(</span><span class="n">Featurizer</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    LSTMFeaturizer maps an input representing a sequence of symbols in [0, vocab_size] of shape</span>
+<span class="sd">    (batch, seq_len) into a latent vector of shape (batch, latent_dim).</span>
+<span class="sd">    The featurization is done with num_layers LSTM that has num_layers layers and num_hidden units</span>
+
+<span class="sd">    :param field_name: input symbol</span>
+<span class="sd">    :param seq_len: length of sequence</span>
+<span class="sd">    :param vocab_size: size of vocabulary</span>
+<span class="sd">    :param num_hidden: number of hidden units</span>
+<span class="sd">    :param num_layers: number of layers</span>
+<span class="sd">    :param latent_dim: latent dimensionality (number of hidden units in fully connected</span>
+<span class="sd">                        output layer of lstm)</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">seq_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+                 <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                 <span class="n">num_hidden</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                 <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                 <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                 <span class="n">use_gpu</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">gpu_device</span><span class="p">()</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">LSTMFeaturizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">seq_len</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_hidden</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_layers</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="n">field_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span><span class="p">):</span>
+            <span class="n">embed_symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">input_symbol</span><span class="p">,</span>
+                <span class="n">input_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span>
+                <span class="n">output_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span>
+            <span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">make_cell</span><span class="p">(</span><span class="n">layer_index</span><span class="p">):</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;lstm_l</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">layer_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span><span class="p">)</span>
+                <span class="n">cell_type</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">FusedRNNCell</span> <span class="k">if</span> <span class="n">use_gpu</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">LSTMCell</span>
+                <span class="n">cell</span> <span class="o">=</span> <span class="n">cell_type</span><span class="p">(</span><span class="n">num_hidden</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">)</span>
+                <span class="c1"># residual connection can only be applied in the first layer currently in mxnet</span>
+                <span class="k">return</span> <span class="n">cell</span> <span class="k">if</span> <span class="n">layer_index</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">ResidualCell</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+
+            <span class="n">stack</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">SequentialRNNCell</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_layers</span><span class="p">):</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">make_cell</span><span class="p">(</span><span class="n">layer_index</span><span class="o">=</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">output</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">unroll</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seq_len</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">embed_symbol</span><span class="p">,</span> <span class="n">merge_outputs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EmbeddingFeaturizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.EmbeddingFeaturizer">[docs]</a><span class="k">class</span> <span class="nc">EmbeddingFeaturizer</span><span class="p">(</span><span class="n">Featurizer</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    EmbeddingFeaturizer for categorical data</span>
+
+<span class="sd">    :param field_name: name of the column</span>
+<span class="sd">    :param vocab_size: size of the vocabulary, defaults to 100</span>
+<span class="sd">    :param embed_dim: dimensionality of embedding, defaults to 10</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">EmbeddingFeaturizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">embed_dim</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="n">field_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span><span class="p">):</span>
+            <span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">input_symbol</span><span class="p">,</span>
+                <span class="n">input_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span>
+                <span class="n">output_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">symbol</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BowFeaturizer"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_input_symbols.BowFeaturizer">[docs]</a><span class="k">class</span> <span class="nc">BowFeaturizer</span><span class="p">(</span><span class="n">Featurizer</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Bag of words Featurizer for string data</span>
+
+<span class="sd">    :param field_name: name of the column</span>
+<span class="sd">    :param vocab_size: size of the vocabulary (number of hash buckets), defaults to 2**15</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">15</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BowFeaturizer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="n">field_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field_name</span><span class="p">),</span> <span class="n">stype</span><span class="o">=</span><span class="s1">&#39;csr&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

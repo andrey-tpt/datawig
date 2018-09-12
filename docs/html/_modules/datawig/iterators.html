@@ -1,0 +1,474 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.iterators &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.iterators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.iterators</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">DataWig Iterators:</span>
+<span class="sd">used for feeding data in a pandas DataFrame into an MxNet Imputer Module</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="k">import</span> <span class="n">is_numeric_dtype</span>
+
+<span class="kn">from</span> <span class="nn">.column_encoders</span> <span class="k">import</span> <span class="n">ColumnEncoder</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">logger</span>
+
+
+<div class="viewcode-block" id="ImputerIter"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIter">[docs]</a><span class="k">class</span> <span class="nc">ImputerIter</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DataIter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Constructs an MxNet Iterator for an datawig.imputation.Imputer given a table in csv format</span>
+
+<span class="sd">    :param data_columns: list of featurizers, see datawig.column_featurizer</span>
+<span class="sd">    :param label_columns: list of featurizers</span>
+<span class="sd">    :param batch_size: size of minibatches</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">data_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ColumnEncoder</span><span class="p">],</span>
+                 <span class="n">label_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ColumnEncoder</span><span class="p">],</span>
+                 <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DataIter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_columns</span> <span class="o">=</span> <span class="n">data_columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label_columns</span> <span class="o">=</span> <span class="n">label_columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cur_batch</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_provide_data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_provide_label</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_padding_idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">provide_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returning _provide_data</span>
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_provide_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">provide_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returning _provide_label</span>
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_provide_label</span>
+
+<div class="viewcode-block" id="ImputerIter.decode"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIter.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mxnet_label_predictions</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Takes a list of mxnet label predictions, returns decoded symbols,</span>
+<span class="sd">        Decoding is done with respective ColumnEncoder</span>
+
+<span class="sd">        :param mxnet_label_predictions:</span>
+<span class="sd">        :return: Decoded labels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span>
+                <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label_columns</span><span class="p">,</span> <span class="n">mxnet_label_predictions</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="ImputerIter.mxnet_iterator_from_df"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIter.mxnet_iterator_from_df">[docs]</a>    <span class="k">def</span> <span class="nf">mxnet_iterator_from_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">NDArrayIter</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Takes pandas DataFrame and returns set an MxNet iterator</span>
+
+<span class="sd">        :return: MxNet iterator</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+        <span class="c1"># transform data into mxnet nd arrays</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">col_enc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_columns</span><span class="p">:</span>
+            <span class="n">data_array_numpy</span> <span class="o">=</span> <span class="n">col_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">col_enc</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_array_numpy</span><span class="p">[:</span><span class="n">n_samples</span><span class="p">,</span> <span class="p">:])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Data Encoding - Encoded </span><span class="si">{}</span><span class="s2"> rows of column </span><span class="se">\</span>
+<span class="s2">                        </span><span class="si">{}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> into </span><span class="se">\</span>
+<span class="s2">                        </span><span class="si">{}</span><span class="s2"> of shape </span><span class="si">{}</span><span class="s2"> </span><span class="se">\</span>
+<span class="s2">                        and then into shape </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">),</span>
+                        <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">),</span> <span class="n">col_enc</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">data_array_numpy</span><span class="p">),</span> <span class="n">data_array_numpy</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">col_enc</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+        <span class="c1"># transform labels into mxnet nd arrays</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">col_enc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_columns</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Number of encoder input columns for labels  </span><span class="se">\</span>
+<span class="s2">                                                    must be 1, was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">labels_array_numpy</span> <span class="o">=</span> <span class="n">col_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+                <span class="n">labels</span><span class="p">[</span><span class="n">col_enc</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels_array_numpy</span><span class="p">[:</span><span class="n">n_samples</span><span class="p">,</span> <span class="p">:])</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Label Encoding - Encoded </span><span class="si">{}</span><span class="s2"> rows of column </span><span class="se">\</span>
+<span class="s2">                            </span><span class="si">{}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> into </span><span class="se">\</span>
+<span class="s2">                            </span><span class="si">{}</span><span class="s2"> of shape </span><span class="si">{}</span><span class="s2"> and </span><span class="se">\</span>
+<span class="s2">                            then into shape </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">),</span> <span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">col_enc</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">labels_array_numpy</span><span class="p">),</span> <span class="n">labels_array_numpy</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="n">col_enc</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">labels</span><span class="p">[</span><span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Could not find column </span><span class="si">{}</span><span class="s2"> in DataFrame, </span><span class="se">\</span>
+<span class="s2">                             setting </span><span class="si">{}</span><span class="s2"> labels to missing&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col_enc</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_samples</span><span class="p">))</span>
+
+        <span class="c1"># mxnet requires to use last_batch_handle=&#39;discard&#39; for sparse data</span>
+        <span class="c1"># if there are not enough data points for a batch, we cannot construct an iterator</span>
+        <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">NDArrayIter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
+                                 <span class="n">last_batch_handle</span><span class="o">=</span><span class="s1">&#39;discard&#39;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_n_rows_padding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the number of rows needed to make the number of rows in `data_frame`</span>
+<span class="sd">        divisable by self.batch_size without remainder.</span>
+
+<span class="sd">        :param data_frame: pandas.DataFrame</span>
+<span class="sd">        :return: int, number of rows to pad</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_test_samples</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_rows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">-</span> <span class="n">n_test_samples</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+
+        <span class="n">pad</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">n_rows</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span>
+            <span class="n">pad</span> <span class="o">=</span> <span class="n">n_rows</span>
+
+        <span class="k">return</span> <span class="n">pad</span>
+
+<div class="viewcode-block" id="ImputerIter.reset"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIter.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Resets Iterator</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cur_batch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ImputerIter.next"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIter.next">[docs]</a>    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DataBatch</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns next batch of data</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># get the next batch from the underlying mxnet ndarrayiter</span>
+        <span class="n">next_batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span><span class="p">)</span>
+
+        <span class="c1"># and add indices from original dataframe, if data didn&#39;t come from an mxnet iterator</span>
+        <span class="n">start_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_batch</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="n">next_batch</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">start_batch</span><span class="p">:</span><span class="n">start_batch</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cur_batch</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">next_batch</span></div></div>
+
+
+<div class="viewcode-block" id="ImputerIterDf"><a class="viewcode-back" href="../../modules.html#datawig.iterators.ImputerIterDf">[docs]</a><span class="k">class</span> <span class="nc">ImputerIterDf</span><span class="p">(</span><span class="n">ImputerIter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Constructs an MxNet Iterator for an datawig.imputation.Imputer given a pandas dataframe</span>
+
+<span class="sd">    :param data_frame: pandas dataframe</span>
+<span class="sd">    :param data_columns: list of featurizers, see datawig.column_featurizer</span>
+<span class="sd">    :param label_columns: list of featurizers [CategoricalFeaturizer(&#39;field_name_1&#39;)]</span>
+<span class="sd">    :param batch_size: size of minibatches</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                 <span class="n">data_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ColumnEncoder</span><span class="p">],</span>
+                 <span class="n">label_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ColumnEncoder</span><span class="p">],</span>
+                 <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ImputerIterDf</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data_columns</span><span class="p">,</span> <span class="n">label_columns</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+
+        <span class="c1"># fill string nan with empty string, numerical nan with np.nan</span>
+        <span class="n">numerical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="n">c</span><span class="p">])]</span>
+        <span class="n">string_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">numerical_columns</span><span class="p">))</span>
+        <span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">string_columns</span><span class="p">})</span>
+        <span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numerical_columns</span><span class="p">})</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># custom padding for having to discard the last batch in mxnet for sparse data</span>
+        <span class="n">padding_n_rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_rows_padding</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_padding_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_padding_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_padding_idx</span> <span class="o">+</span> <span class="n">padding_n_rows</span><span class="p">):</span>
+            <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">start_padding_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="k">for</span> <span class="n">column_encoder</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_columns</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_columns</span><span class="p">:</span>
+            <span class="c1"># ensure that column encoder is fitted to data before applying it</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">column_encoder</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">():</span>
+                <span class="n">column_encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mxnet_iterator_from_df</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_provide_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span><span class="o">.</span><span class="n">provide_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_provide_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_iterator</span><span class="o">.</span><span class="n">provide_label</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

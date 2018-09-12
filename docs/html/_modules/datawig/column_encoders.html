@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.column_encoders &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.column_encoders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.column_encoders</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Column Encoders:</span>
+<span class="sd">used for translating values of a table into numerical representation such that Featurizers can</span>
+<span class="sd">operate on them</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">abstractmethod</span><span class="p">,</span> <span class="n">ABCMeta</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">HashingVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">logger</span><span class="p">,</span> <span class="n">pad_to_square</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="NotFittedError"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NotFittedError">[docs]</a><span class="k">class</span> <span class="nc">NotFittedError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Error thrown when unfitted encoder is used</span>
+
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="ColumnEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ColumnEncoder">[docs]</a><span class="k">class</span> <span class="nc">ColumnEncoder</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Abstract super class of column encoders.</span>
+<span class="sd">    Transforms value representation of columns (e.g. strings) into numerical representations to be</span>
+<span class="sd">    fed into MxNet.</span>
+
+<span class="sd">    Options for ColumnEncoders are:</span>
+
+<span class="sd">        SequentialEncoder:  for sequences of symbols (e.g. characters or words),</span>
+<span class="sd">        BowEncoder: bag-of-word representation, as sparse vectors</span>
+<span class="sd">        CategoricalEncoder: for categorical variables</span>
+<span class="sd">        NumericalEncoder: for numerical values</span>
+
+<span class="sd">    :param input_columns: List[str] with column names to be used as input for this ColumnEncoder</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param output_dim: dimensionality of encoded column values (1 for categorical, vocabulary size</span>
+<span class="sd">                    for sequential and BoW)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">output_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_columns</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">input_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">input_columns</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">input_columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ColumnEncoder.input_columns must be str type, was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">col</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="n">output_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">output_column</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_columns</span><span class="p">)</span>
+            <span class="n">logstr</span> <span class="o">=</span> <span class="s2">&quot;No output column name provided for ColumnEncoder &quot;</span> \
+                     <span class="s2">&quot;using </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">output_column</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">logstr</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span> <span class="o">=</span> <span class="n">input_columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span> <span class="o">=</span> <span class="n">output_column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span> <span class="o">=</span> <span class="n">output_dim</span>
+
+
+<div class="viewcode-block" id="ColumnEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ColumnEncoder.transform">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms values in one or more columns of DataFrame into a numpy array that can be fed</span>
+<span class="sd">        into a Featurizer</span>
+
+<span class="sd">        :param data_frame:</span>
+<span class="sd">        :return: List of integers</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ColumnEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ColumnEncoder.fit">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Fits a ColumnEncoder if needed (i.e. vocabulary/alphabet)</span>
+
+<span class="sd">        :param data_frame: pandas DataFrame</span>
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ColumnEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ColumnEncoder.is_fitted">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Checks if ColumnEncoder (still) needs to be fitted to data</span>
+
+<span class="sd">        :return: True if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ColumnEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ColumnEncoder.decode">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Decodes a pandas Series of token indices</span>
+
+<span class="sd">        :param col: pandas Series of token indices</span>
+<span class="sd">        :return: pandas Series of tokens</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="CategoricalEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder">[docs]</a><span class="k">class</span> <span class="nc">CategoricalEncoder</span><span class="p">(</span><span class="n">ColumnEncoder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Transforms categorical variable from string representation into number</span>
+
+<span class="sd">    :param input_columns: List[str] with column names to be used as input for this ColumnEncoder</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param token_to_idx: token to index mapping,</span>
+<span class="sd">            0 is reserved for missing tokens, 1 ... max_tokens for most to least frequent tokens</span>
+<span class="sd">    :param max_tokens: maximum number of tokens</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">token_to_idx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e4</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">ColumnEncoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_columns</span><span class="p">,</span> <span class="n">output_column</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;CategoricalEncoder can only encode single columns, got </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_tokens</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="o">=</span> <span class="n">token_to_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="CategoricalEncoder.transform_func_categorical"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.transform_func_categorical">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">transform_func_categorical</span><span class="p">(</span><span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+                                   <span class="n">token_to_idx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+                                   <span class="n">missing_token_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms categorical values into their indices</span>
+
+<span class="sd">        :param col: pandas Series with categorical values</span>
+<span class="sd">        :param token_to_idx: Dict[str, int] with mapping from token to token index</span>
+<span class="sd">        :param missing_token_idx: index for missing symbol</span>
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">token_to_idx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">missing_token_idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="CategoricalEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.is_fitted">[docs]</a>    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Checks if ColumnEncoder (still) needs to be fitted to data</span>
+
+<span class="sd">        :return: True if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="CategoricalEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms string column of pandas dataframe into categoricals</span>
+
+<span class="sd">        :param data_frame: pandas data frame</span>
+<span class="sd">        :return: numpy array (rows by 1)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;CategoricalEncoder needs token to index mapping&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">token</span> <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="n">func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_func_categorical</span><span class="p">,</span> <span class="n">token_to_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">,</span>
+                       <span class="n">missing_token_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;CategoricalEncoder encoding </span><span class="si">{}</span><span class="s2"> rows with </span><span class="se">\</span>
+<span class="s2">                    </span><span class="si">{}</span><span class="s2"> tokens from column </span><span class="si">{}</span><span class="s2"> to </span><span class="se">\</span>
+<span class="s2">                    column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CategoricalEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Fits a CategoricalEncoder by extracting the value histogram of a column and capping it at</span>
+<span class="sd">        max_tokens. Issues warning if less than 100 values were observed.</span>
+
+<span class="sd">        :param data_frame: pandas data frame</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="n">value_histogram</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                                                    <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value_histogram</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">token</span><span class="p">:</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">token</span> <span class="ow">in</span>
+                             <span class="nb">enumerate</span><span class="p">(</span><span class="n">value_histogram</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">])}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">token</span> <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> most often encountered discrete values: </span><span class="se">\</span>
+<span class="s2">                     </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">,</span><span class="n">value_histogram</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">]))</span>
+
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">value_histogram</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">value_histogram</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;CategoricalEncoder for column </span><span class="si">{}</span><span class="s2"> </span><span class="se">\</span>
+<span class="s2">                               found only </span><span class="si">{}</span><span class="s2"> occurrences of value </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">value_histogram</span><span class="p">[</span><span class="n">label</span><span class="p">],</span> <span class="n">label</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="CategoricalEncoder.decode_token"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.decode_token">[docs]</a>    <span class="k">def</span> <span class="nf">decode_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Decodes a token index into a token</span>
+
+<span class="sd">        :param token_idx: token index</span>
+<span class="sd">        :return: token</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">token_idx</span><span class="p">,</span> <span class="s2">&quot;MISSING&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CategoricalEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.CategoricalEncoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Decodes a pandas Series of token indices</span>
+
+<span class="sd">        :param col: pandas Series of token indices</span>
+<span class="sd">        :return: pandas Series of tokens</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">col</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;MISSING&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SequentialEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder">[docs]</a><span class="k">class</span> <span class="nc">SequentialEncoder</span><span class="p">(</span><span class="n">ColumnEncoder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Transforms sequence of characters into sequence of numbers</span>
+
+<span class="sd">    :param input_columns: List[str] with column names to be used as input for this ColumnEncoder</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param token_to_idx: token to index mapping</span>
+<span class="sd">           0 is reserved for missing tokens, 1 ... max_tokens-1 for most to least frequent tokens</span>
+<span class="sd">    :param max_tokens: maximum number of tokens</span>
+<span class="sd">    :param seq_len: length of sequence, shorter sequences get padded to, longer sequences</span>
+<span class="sd">                    truncated at seq_len symbols</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">token_to_idx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e3</span><span class="p">),</span>
+                 <span class="n">seq_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">ColumnEncoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_columns</span><span class="p">,</span> <span class="n">output_column</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SequentialEncoder can only encode single columns, got </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="o">=</span> <span class="n">token_to_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_tokens</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SequentialEncoder.transform_func_seq_single"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.transform_func_seq_single">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">transform_func_seq_single</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                  <span class="n">token_to_idx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+                                  <span class="n">seq_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                  <span class="n">missing_token_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms a single string into a sequence of token ids</span>
+
+<span class="sd">        :param string: a sequence of symbols as string</span>
+<span class="sd">        :param token_to_idx: Dict[str, int] with mapping from token to token index</span>
+<span class="sd">        :param seq_len: length of sequence</span>
+<span class="sd">        :param missing_token_idx: index for missing symbol</span>
+<span class="sd">        :return: List[int] with transformed values</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">rep</span> <span class="o">=</span> <span class="p">[</span><span class="n">token_to_idx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tok</span><span class="p">,</span> <span class="n">missing_token_idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[:</span><span class="n">seq_len</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rep</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">pad</span> <span class="o">=</span> <span class="p">[</span><span class="n">missing_token_idx</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">seq_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">rep</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">rep</span> <span class="o">+</span> <span class="n">pad</span></div>
+
+<div class="viewcode-block" id="SequentialEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.is_fitted">[docs]</a>    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Checks if ColumnEncoder (still) needs to be fitted to data</span>
+
+<span class="sd">        :return: True if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="SequentialEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Fits a SequentialEncoder by extracting the character value histogram of a column and</span>
+<span class="sd">        capping it at max_tokens</span>
+
+<span class="sd">        :param data_frame: pandas data frame</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fitting SequentialEncoder on </span><span class="si">%s</span><span class="s2"> rows&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)))</span>
+
+        <span class="c1"># get the relevant column and concatenate all strings</span>
+        <span class="n">flattened</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span>
+                <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+        <span class="c1"># compute character histograms, take most frequent ones</span>
+        <span class="n">char_hist</span> <span class="o">=</span> <span class="n">flattened</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">]</span>
+
+        <span class="n">logstr</span> <span class="o">=</span> <span class="s2">&quot;Characters encoded for </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                        <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">char_hist</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">logstr</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">char_hist</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">token</span><span class="p">:</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">token</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span>
+                             <span class="nb">zip</span><span class="p">(</span><span class="n">char_hist</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">))}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">char</span> <span class="k">for</span> <span class="n">char</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="SequentialEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms column of pandas dataframe into sequence of tokens</span>
+
+<span class="sd">        :param data_frame: pandas DataFrame</span>
+<span class="sd">        :return: numpy array (rows by seq_len)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;SequentialEncoder needs token to index mapping&quot;</span><span class="p">)</span>
+
+        <span class="n">logstr</span> <span class="o">=</span> <span class="s2">&quot;Applying SequentialEncoder on </span><span class="si">{}</span><span class="s2"> rows with </span><span class="si">{}</span><span class="s2"> tokens and seq_len </span><span class="si">{}</span><span class="s2"> &quot;</span> \
+                 <span class="s2">&quot;from column </span><span class="si">{}</span><span class="s2"> to column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">),</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">logstr</span><span class="p">)</span>
+
+        <span class="n">func</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_func_seq_single</span><span class="p">,</span> <span class="n">token_to_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token_to_idx</span><span class="p">,</span>
+                       <span class="n">seq_len</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">,</span>
+                       <span class="n">missing_token_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SequentialEncoder.decode_seq"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.decode_seq">[docs]</a>    <span class="k">def</span> <span class="nf">decode_seq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token_index_sequence</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Decodes a sequence of token indices into a string</span>
+
+<span class="sd">        :param token_index_sequence: an iterable of token indices</span>
+<span class="sd">        :return: str the decoded string</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">idx_to_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">token_idx</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">token_idx</span> <span class="ow">in</span> <span class="n">token_index_sequence</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="SequentialEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.SequentialEncoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decodes a pandas Series of token indices</span>
+
+<span class="sd">        :param col: pandas Series of token index iterables</span>
+<span class="sd">        :return: pd.Series of strings</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">col</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decode_seq</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;MISSING&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="BowEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.BowEncoder">[docs]</a><span class="k">class</span> <span class="nc">BowEncoder</span><span class="p">(</span><span class="n">ColumnEncoder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Bag-of-Words encoder for text data, using sklearn&#39;s HashingVectorizer</span>
+
+<span class="sd">    :param input_columns: List[str] with column names to be used as input for this ColumnEncoder</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param max_tokens: Number of hash buckets (dimensionality of sparse ngram vector). default 2**18</span>
+<span class="sd">    :param tokens: How to tokenize the input data, supports &#39;words&#39; and &#39;chars&#39;.</span>
+<span class="sd">    :param prefixed_concatenation: whether or not to prefix values with column name before concat</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">18</span><span class="p">,</span>
+                 <span class="n">tokens</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;chars&#39;</span><span class="p">,</span>
+                 <span class="n">prefixed_concatenation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">ColumnEncoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_columns</span><span class="p">,</span> <span class="n">output_column</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_tokens</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">tokens</span> <span class="o">==</span> <span class="s1">&#39;words&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">),</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">tokens</span> <span class="o">==</span> <span class="s1">&#39;chars&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">),</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                                                <span class="n">analyzer</span><span class="o">=</span><span class="s2">&quot;char&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;BowEncoder attribute tokens has to be &#39;words&#39; or &#39;chars&#39;, defaulting to &#39;chars&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">),</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                                                <span class="n">analyzer</span><span class="o">=</span><span class="s2">&quot;char&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefixed_concatenation</span> <span class="o">=</span> <span class="n">prefixed_concatenation</span>
+
+<div class="viewcode-block" id="BowEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.BowEncoder.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Does nothing, HashingVectorizers do not need to be fit.</span>
+
+<span class="sd">        :param data_frame:</span>
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;BowEncoder is stateless and doesn&#39;t need to be fit&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="BowEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.BowEncoder.is_fitted">[docs]</a>    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns true if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        :param self:</span>
+<span class="sd">        :return: True if the encoder is fitted</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="BowEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.BowEncoder.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms one or more string columns into Bag-of-words vectors, hashed into a max_features</span>
+<span class="sd">        dimensional feature space. Nans and missing values will be replaced by zero vectors.</span>
+
+<span class="sd">        :param data_frame: pandas DataFrame with text columns</span>
+<span class="sd">        :return: numpy array (rows by max_features)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">tmp_col</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp_col</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">data_frame</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefixed_concatenation</span><span class="p">:</span>
+                    <span class="n">tmp_col</span> <span class="o">+=</span> <span class="n">col</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data_frame</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tmp_col</span> <span class="o">+=</span> <span class="n">data_frame</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+            <span class="n">logstr</span> <span class="o">=</span> <span class="s2">&quot;Applying Hashing BoW Encoding to columns </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> prefix into column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">,</span> <span class="s2">&quot;with&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefixed_concatenation</span> <span class="k">else</span> <span class="s2">&quot;without&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">logstr</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">tmp_col</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BowEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.BowEncoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Raises NotImplementedError, hashed bag-of-words cannot be decoded due to hash collisions</span>
+
+<span class="sd">        :param token_index_sequence:</span>
+
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<div class="viewcode-block" id="NumericalEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NumericalEncoder">[docs]</a><span class="k">class</span> <span class="nc">NumericalEncoder</span><span class="p">(</span><span class="n">ColumnEncoder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Numerical encoder, concatenates columns in field_names into one vector</span>
+<span class="sd">    fills nans with the mean of a column</span>
+
+<span class="sd">    :param input_columns: List[str] with column names to be used as input for this ColumnEncoder</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param normalize: whether to normalize by the standard deviation or not, default True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">ColumnEncoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_columns</span><span class="p">,</span> <span class="n">output_column</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">normalize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="NumericalEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NumericalEncoder.is_fitted">[docs]</a>    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns true if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        :param self:</span>
+<span class="sd">        :return: True if the encoder is fitted</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fitted</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">:</span>
+            <span class="n">fitted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">fitted</span></div>
+
+<div class="viewcode-block" id="NumericalEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NumericalEncoder.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Does nothing or fits the normalizer, if normalization is specified</span>
+
+<span class="sd">        :param data_frame: DataFrame with numerical columns specified when</span>
+<span class="sd">                            instantiating NumericalEncoder</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="NumericalEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NumericalEncoder.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Concatenates the numerical columns specified when instantiating the NumericalEncoder</span>
+<span class="sd">        Normalizes features if specified in the NumericalEncoder</span>
+
+<span class="sd">        :param data_frame: DataFrame with numerical columns specified in NumericalEncoder</span>
+<span class="sd">        :return: np.array with numerical features (rows by number of numerical columns)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="o">.</span><span class="n">mean_</span><span class="p">)))</span>
+        <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Concatenating numeric columns </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Normalizing with StandardScaler&quot;</span><span class="p">)</span>
+            <span class="n">encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">encoded</span> <span class="o">=</span> <span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">encoded</span></div>
+
+<div class="viewcode-block" id="NumericalEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.NumericalEncoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Undoes the normalization, scales by scale and adds the mean</span>
+
+<span class="sd">        :param col: pandas Series (normalized)</span>
+<span class="sd">        :return: pandas Series (unnormalized)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="p">(</span><span class="n">col</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="o">.</span><span class="n">scale_</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="o">.</span><span class="n">mean_</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">decoded</span> <span class="o">=</span> <span class="n">col</span>
+
+        <span class="k">return</span> <span class="n">decoded</span></div></div>
+
+
+<div class="viewcode-block" id="ImageEncoder"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ImageEncoder">[docs]</a><span class="k">class</span> <span class="nc">ImageEncoder</span><span class="p">(</span><span class="n">ColumnEncoder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Transforms images into number normalized, resized bitmap</span>
+
+<span class="sd">    Note: we assume that a dataframe contains a column with the PATH to an image,</span>
+<span class="sd">          ex: ~/images/[asin number].jpg</span>
+
+<span class="sd">    :param input_columns: List[str] with a single column name referring to the DataFrame column</span>
+<span class="sd">                            with image file names</span>
+<span class="sd">    :param output_column: Name of output field, used as field name in downstream MxNet iterator</span>
+<span class="sd">    :param normalize: whether to normalize or not, requires fitting</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ImageEncoder can only encode single columns, got </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">input_columns</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_columns</span><span class="p">)))</span>
+
+        <span class="n">ColumnEncoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_columns</span><span class="p">,</span> <span class="n">output_column</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">normalize</span>
+
+<div class="viewcode-block" id="ImageEncoder.is_fitted"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ImageEncoder.is_fitted">[docs]</a>    <span class="k">def</span> <span class="nf">is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Returns true if the column encoder does not require fitting (anymore or at all)</span>
+
+<span class="sd">        :param self:</span>
+<span class="sd">        :return: True if the encoder is fitted</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="ImageEncoder.transform"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ImageEncoder.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Transforms string column of pandas dataframe with image file names into bitmaps</span>
+<span class="sd">        represented as ndarray</span>
+
+<span class="sd">        :param data_frame: pandas data frame</span>
+<span class="sd">        :return: numpy array (rows by color-channels by image-height by image-width)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="n">img_tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__process_image</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">img_tensor</span></div>
+
+<div class="viewcode-block" id="ImageEncoder.fit"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ImageEncoder.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Fits an ImageEncoder - Note doesn&#39;t do anything now but leaving for future features</span>
+
+<span class="sd">        :param data_frame: pandas data frame</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only pandas data frames are supported&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="ImageEncoder.decode"><a class="viewcode-back" href="../../modules.html#datawig.column_encoders.ImageEncoder.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Raises NotImplementedError, images cannot be decoded yet</span>
+
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__reformat_and_normalize</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Reformats the image to match the input dimensions (224, 224, 3) of the standard networks</span>
+<span class="sd">        downloaded from gluon model zoo, see ImageFeaturizer</span>
+
+<span class="sd">        :param img: image as numpy array</span>
+<span class="sd">        :param mean: mean of the image for each color channel</span>
+<span class="sd">        :param std: standard deviation of each color channel</span>
+<span class="sd">        :return: reformatted and normalized image</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">mean</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">std</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">std</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">pad_to_square</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">color_normalize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+                                       <span class="n">std</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">nd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">std</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Checks whether image exists, if so, loads, normalizes, and reshapes images to the proper</span>
+<span class="sd">        shape, if not a warning is issued</span>
+
+<span class="sd">        :param image_path: path to the downloaded image</span>
+<span class="sd">        :return: numpy array (rows by color-channels by image-height by image-width)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+            <span class="n">image_tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__reformat_and_normalize</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Could not find image </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_path</span><span class="p">))</span>
+            <span class="n">image_tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">image_tensor</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1967 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Reference &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer Documentation" href="development.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-datawig.simple_imputer">
+<span id="datawig-simple-imputer"></span><h2>datawig.simple_imputer<a class="headerlink" href="#module-datawig.simple_imputer" title="Permalink to this headline">¶</a></h2>
+<p>DataWig SimpleImputer:
+Uses some simple default encoders and featurizers that usually yield decent imputation quality</p>
+<dl class="class">
+<dt id="datawig.simple_imputer.SimpleImputer">
+<em class="property">class </em><code class="descclassname">datawig.simple_imputer.</code><code class="descname">SimpleImputer</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column</em>, <em>output_path=''</em>, <em>num_hash_buckets=32768</em>, <em>num_labels=100</em>, <em>tokens='chars'</em>, <em>latent_dim=100</em>, <em>hidden_layers=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>SimpleImputer model based on n-grams of concatenated strings of input columns, concatenated
+numerical features and image features, if provided.</p>
+<p>Given a data frame with string columns, a model is trained to predict observed values in label
+column using values observed in other columns.</p>
+<p>The model can then be used to impute missing values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – list of input column names (as strings)</li>
+<li><strong>output_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – output column name (as string)</li>
+<li><strong>output_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – path to store model and metrics</li>
+<li><strong>num_hash_buckets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of hash buckets used for the n-gram hashing vectorizer, only
+used for non-numerical input columns, ignored otherwise</li>
+<li><strong>num_labels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of imputable values considered after, only used for non-numerical
+input columns, ignored otherwise</li>
+<li><strong>tokens</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – string, ‘chars’ or ‘words’ (default ‘chars’), determines tokenization strategy
+for n-grams, only used for non-numerical input columns, ignored otherwise</li>
+<li><strong>latent_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – int, number of latent dimensions for hidden layer of NumericalFeaturizers;
+only used for numerical input columns, ignored otherwise</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datawig.simple_imputer</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">training</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;imputer_model&quot;</span>
+
+<span class="c1"># set up imputer model</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span> <span class="n">input_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;bullet_point&#39;</span><span class="p">],</span> <span class="n">output_column</span><span class="o">=</span><span class="s1">&#39;brand&#39;</span><span class="p">)</span>
+
+<span class="c1"># train the imputer model</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+
+<span class="c1"># obtain imputations</span>
+<span class="n">imputations</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.check_data_types">
+<code class="descname">check_data_types</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.check_data_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.check_data_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether a column contains string, numeric or image file data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>train_df</em>, <em>test_df=None</em>, <em>ctx=cpu(0)</em>, <em>learning_rate=0.004</em>, <em>num_epochs=10</em>, <em>patience=3</em>, <em>test_split=0.1</em>, <em>weight_decay=0.0</em>, <em>batch_size=16</em>, <em>layer_dim=None</em>, <em>final_fc_hidden_units=None</em>, <em>calibrate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains and stores imputer model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>train_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – training data as dataframe</li>
+<li><strong>test_df</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – test data as dataframe; if not provided, a ratio of test_split of the
+training data are used as test data</li>
+<li><strong>ctx</strong> (<em>&lt;module 'mxnet.context' from '/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/context.py'&gt;</em>) – mxnet context (default mx.gpu() if available, otherwise mx.cpu())</li>
+<li><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – learning rate for stochastic gradient descent (default 4e-4)</li>
+<li><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – maximal number of training epochs (default 10)</li>
+<li><strong>patience</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – used for early stopping; after [patience] epochs with no improvement,
+training is stopped. (default 3)</li>
+<li><strong>test_split</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – if no test_df is provided this is the ratio of test data to be held
+separate for determining model convergence</li>
+<li><strong>weight_decay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – regularizer (default 0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:param batch_size (default 16)
+:type layer_dim: <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]
+:param layer_dim: list dimensions for FC layers after the image featurization network
+:type final_fc_hidden_units: <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]
+:param final_fc_hidden_units: list dimensions for FC layers after the final concatenation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.fit_hpo">
+<code class="descname">fit_hpo</code><span class="sig-paren">(</span><em>train_df</em>, <em>test_df=None</em>, <em>ctx=cpu(0)</em>, <em>learning_rate=0.001</em>, <em>num_epochs=10</em>, <em>patience=3</em>, <em>test_split=0.1</em>, <em>weight_decay=None</em>, <em>batch_size=16</em>, <em>num_hash_bucket_candidates=None</em>, <em>tokens_candidates=None</em>, <em>latent_dim_candidates=None</em>, <em>hidden_layers_candidates=None</em>, <em>hpo_max_train_samples=10000</em>, <em>normalize_numeric=True</em>, <em>layer_dim=None</em>, <em>final_fc_hidden_units=None</em>, <em>learning_rate_candidates=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.fit_hpo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.fit_hpo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits an imputer model with gridsearch hyperparameter optimization (hpo)</p>
+<p>Grids are specified using the <a href="#id1"><span class="problematic" id="id2">*</span></a>_candidates arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>train_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – training data as dataframe</li>
+<li><strong>test_df</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – test data as dataframe; if not provided, a ratio of test_split of the
+training data are used as test data</li>
+<li><strong>ctx</strong> (<em>&lt;module 'mxnet.context' from '/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/context.py'&gt;</em>) – mxnet context (default mx.cpu())</li>
+<li><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – learning rate for stochastic gradient descent (default 4e-4)</li>
+<li><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – maximal number of training epochs (default 10)</li>
+<li><strong>patience</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – used for early stopping; after [patience] epochs with no improvement,
+training is stopped. (default 3)</li>
+<li><strong>test_split</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – if no test_df is provided this is the ratio of test data to be held
+separate for determining model convergence</li>
+<li><strong>weight_decay</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – regularizer (default 0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:param batch_size (default 16)
+:type num_hash_bucket_candidates: <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]
+:param num_hash_bucket_candidates: candidates for gridsearch hyperparameter</p>
+<blockquote>
+<div>optimization (default [2**10, 2**13, 2**15, 2**18, 2**20])</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tokens_candidates</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – candidates for tokenization (default [‘words’, ‘chars’])</li>
+<li><strong>latent_dim_candidates</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – candidates for latent dimensionality of
+numerical features (default [10, 50, 100])</li>
+<li><strong>hidden_layers_candidates</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – candidates for number of hidden layers of
+numerical features (default [0, 1, 2])</li>
+<li><strong>learning_rate_candidates</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – candidates for learning rate (default [1e-1, 1e-2, 1e-3])</li>
+<li><strong>hpo_max_train_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – training set size for hyperparameter optimization</li>
+<li><strong>normalize_numeric</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – boolean indicating whether or not to normalize numeric values</li>
+<li><strong>layer_dim</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – list of lists w/ dimensions for FC layers after the image
+featurization network (NOTE: for HPO, this expects a list of lists)</li>
+<li><strong>final_fc_hidden_units</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – list of lists w/ dimensions for FC layers after the
+final concatenation (NOTE: for HPO, this expects a list of lists)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">trained SimpleImputer model</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="datawig.simple_imputer.SimpleImputer.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>output_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads model from output path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>output_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – output_path field of trained SimpleImputer model</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">SimpleImputer model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.load_metrics">
+<code class="descname">load_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.load_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.load_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads various metrics of the internal imputer model, returned as dictionary
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]
+:return: Dict[str,Any]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>data_frame</em>, <em>precision_threshold=0.0</em>, <em>imputation_suffix='_imputed'</em>, <em>score_suffix='_imputed_proba'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.predict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Imputes most likely value if it is above a certain precision threshold determined on the</dt>
+<dd>validation set</dd>
+</dl>
+<p>Precision is calculated as part of the <cite>datawig.evaluate_and_persist_metrics</cite> function.</p>
+<p>Returns original dataframe with imputations and respective likelihoods as estimated by
+imputation model; in additional columns; names of imputation columns are that of the label
+suffixed with <cite>imputation_suffix</cite>, names of respective likelihood columns are suffixed
+with <cite>score_suffix</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – data frame (pandas)</li>
+<li><strong>precision_threshold</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – double between 0 and 1 indicating precision threshold</li>
+<li><strong>imputation_suffix</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – suffix for imputation columns</li>
+<li><strong>score_suffix</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – suffix for imputation score columns</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">data_frame original dataframe with imputations and likelihood in additional column</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.simple_imputer.SimpleImputer.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/simple_imputer.html#SimpleImputer.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.simple_imputer.SimpleImputer.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves model to disk; mxnet module and imputer are stored separately</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.imputer">
+<span id="datawig-imputer"></span><h2>datawig.imputer<a class="headerlink" href="#module-datawig.imputer" title="Permalink to this headline">¶</a></h2>
+<p>DataWig Imputer:
+Imputes missing values in tables</p>
+<dl class="class">
+<dt id="datawig.imputer.Imputer">
+<em class="property">class </em><code class="descclassname">datawig.imputer.</code><code class="descname">Imputer</code><span class="sig-paren">(</span><em>data_encoders</em>, <em>data_featurizers</em>, <em>label_encoders</em>, <em>output_path=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Imputer model based on deep learning trained with MxNet</p>
+<p>Given a data frame with string columns, a model is trained to predict observed values in one
+or more column using values observed in other columns. The model can then be used to impute
+missing values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data_encoders</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of datawig.mxnet_input_symbol.ColumnEncoders,
+output_column name must match field_name of data_featurizers</li>
+<li><strong>data_featurizers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Featurizer</span></code></a>]) – list of Featurizer;</li>
+<li><strong>label_encoders</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of CategoricalEncoder or NumericalEncoder</li>
+<li><strong>output_path</strong> – path to store model and metrics</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.imputer.Imputer.calibrate">
+<code class="descname">calibrate</code><span class="sig-paren">(</span><em>test_iter</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cecks model calibration and fits temperature scaling.
+If the fit improves model calibration, the temperature parameter is assigned
+as property to self and used for all further predictions in self.predict_mxnet_iter().
+Saves calibration information to dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>test_iter</strong> (<a class="reference internal" href="#datawig.iterators.ImputerIterDf" title="datawig.iterators.ImputerIterDf"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImputerIterDf</span></code></a>) – iterator, see ImputerIter in iterators.py</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>train_df</em>, <em>test_df=None</em>, <em>ctx=cpu(0)</em>, <em>learning_rate=0.001</em>, <em>num_epochs=100</em>, <em>patience=3</em>, <em>test_split=0.1</em>, <em>weight_decay=0.0</em>, <em>batch_size=16</em>, <em>final_fc_hidden_units=None</em>, <em>calibrate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains and stores imputer model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – training data as dataframe</li>
+<li><strong>test_df</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – test data as dataframe; if not provided, [test_split] % of the training
+data are used as test data</li>
+<li><strong>ctx</strong> (<em>&lt;module 'mxnet.context' from '/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/context.py'&gt;</em>) – mxnet context (default mx.cpu())</li>
+<li><strong>learning_rate</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – learning rate for stochastic gradient descent (default 1e-4)</li>
+<li><strong>num_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – maximal number of training epochs (default 100)</li>
+<li><strong>patience</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – used for early stopping; after [patience] epochs with no improvement,
+training is stopped. (default 3)</li>
+<li><strong>test_split</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – if no test_df is provided this is the ratio of test data to be held
+separate for determining model convergence</li>
+<li><strong>weight_decay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – regularizer (default 0)</li>
+<li><strong>final_fc_hidden_units</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – list of dimensions for the final fully connected layer.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Batch_size:</th><td class="field-body"><p class="first">default 16</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">trained imputer model</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="datawig.imputer.Imputer.load">
+<em class="property">static </em><code class="descname">load</code><span class="sig-paren">(</span><em>output_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads model from output path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>output_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – output_path field of trained Imputer model</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">imputer model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>data_frame</em>, <em>precision_threshold=0.0</em>, <em>imputation_suffix='_imputed'</em>, <em>score_suffix='_imputed_proba'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes imputations for numerical or categorical values</p>
+<p>For categorical imputations, most likely values are imputed if values are above a certain
+precision threshold computed on the validation set
+Precision is calculated as part of the <cite>datawig.evaluate_and_persist_metrics</cite> function.</p>
+<p>For numerical imputations, no thresholding is applied.</p>
+<p>Returns original dataframe with imputations and respective likelihoods as estimated by
+imputation model in additional columns; names of imputation columns are that of the label
+suffixed with <cite>imputation_suffix</cite>, names of respective likelihood columns are suffixed with
+<cite>score_suffix</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data_frame</li>
+<li><strong>precision_threshold</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – double between 0 and 1 indicating precision threshold for each
+imputation</li>
+<li><strong>imputation_suffix</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – suffix for imputation columns</li>
+<li><strong>score_suffix</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – suffix for imputation score columns</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">original dataframe with imputations and their likelihoods in additional columns</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.predict_above_precision">
+<code class="descname">predict_above_precision</code><span class="sig-paren">(</span><em>data_frame</em>, <em>precision_threshold=0.95</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.predict_above_precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.predict_above_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the probabilities for each class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – data frame</li>
+<li><strong>precision_threshold</strong> – don’t predict if predicted class probability is below this
+precision threshold</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of {‘column_name’: array}, array is a numpy array of shape samples-by-labels</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.predict_proba">
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the probabilities for each class
+:type data_frame: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data_frame:  data frame
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>
+:return: dict of {‘column_name’: array}, array is a numpy array of shape samples-by-labels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.predict_proba_top_k">
+<code class="descname">predict_proba_top_k</code><span class="sig-paren">(</span><em>data_frame</em>, <em>top_k=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.predict_proba_top_k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.predict_proba_top_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns tuples of (label, probability) for the top_k most likely predicted classes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</li>
+<li><strong>top_k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of most likely predictions to return</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of {‘column_name’: list} where list is a list of (label, probability) tuples</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves model to disk, except mxnet module which is stored separately during fit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imputes values given an mxnet iterator (see iterators)
+:type data_frame: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data_frame:  pandas data frame (pandas)
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>
+:return: dict of {‘column_name’: list} where list contains the string predictions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.imputer.Imputer.transform_and_compute_metrics">
+<code class="descname">transform_and_compute_metrics</code><span class="sig-paren">(</span><em>data_frame</em>, <em>metrics_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/imputer.html#Imputer.transform_and_compute_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.imputer.Imputer.transform_and_compute_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns predictions and metrics (average and per class)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – data frame</li>
+<li><strong>metrics_path</strong> – if not None and exists, metrics are serialized as json to this path.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.column_encoders">
+<span id="datawig-column-encoders"></span><h2>datawig.column_encoders<a class="headerlink" href="#module-datawig.column_encoders" title="Permalink to this headline">¶</a></h2>
+<p>Column Encoders:
+used for translating values of a table into numerical representation such that Featurizers can
+operate on them</p>
+<dl class="class">
+<dt id="datawig.column_encoders.BowEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">BowEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>max_tokens=262144</em>, <em>tokens='chars'</em>, <em>prefixed_concatenation=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#BowEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.BowEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.column_encoders.ColumnEncoder</span></code></a></p>
+<p>Bag-of-Words encoder for text data, using sklearn’s HashingVectorizer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – List[str] with column names to be used as input for this ColumnEncoder</li>
+<li><strong>output_column</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>max_tokens</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of hash buckets (dimensionality of sparse ngram vector). default 2**18</li>
+<li><strong>tokens</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – How to tokenize the input data, supports ‘words’ and ‘chars’.</li>
+<li><strong>prefixed_concatenation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether or not to prefix values with column name before concat</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.BowEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#BowEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.BowEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises NotImplementedError, hashed bag-of-words cannot be decoded due to hash collisions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token_index_sequence</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.BowEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#BowEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.BowEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does nothing, HashingVectorizers do not need to be fit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.BowEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#BowEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.BowEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the column encoder does not require fitting (anymore or at all)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the encoder is fitted</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.BowEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#BowEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.BowEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms one or more string columns into Bag-of-words vectors, hashed into a max_features
+dimensional feature space. Nans and missing values will be replaced by zero vectors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas DataFrame with text columns</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">numpy array (rows by max_features)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.column_encoders.CategoricalEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">CategoricalEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>token_to_idx=None</em>, <em>max_tokens=10000</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.column_encoders.ColumnEncoder</span></code></a></p>
+<p>Transforms categorical variable from string representation into number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – List[str] with column names to be used as input for this ColumnEncoder</li>
+<li><strong>output_column</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>token_to_idx</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – token to index mapping,
+0 is reserved for missing tokens, 1 … max_tokens for most to least frequent tokens</li>
+<li><strong>max_tokens</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – maximum number of tokens</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.CategoricalEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a pandas Series of token indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – pandas Series of token indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas Series of tokens</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.CategoricalEncoder.decode_token">
+<code class="descname">decode_token</code><span class="sig-paren">(</span><em>token_idx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.decode_token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.decode_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a token index into a token</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – token index</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">token</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.CategoricalEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits a CategoricalEncoder by extracting the value histogram of a column and capping it at
+max_tokens. Issues warning if less than 100 values were observed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.CategoricalEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if ColumnEncoder (still) needs to be fitted to data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the column encoder does not require fitting (anymore or at all)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.CategoricalEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms string column of pandas dataframe into categoricals</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">numpy array (rows by 1)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="datawig.column_encoders.CategoricalEncoder.transform_func_categorical">
+<em class="property">static </em><code class="descname">transform_func_categorical</code><span class="sig-paren">(</span><em>col</em>, <em>token_to_idx</em>, <em>missing_token_idx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#CategoricalEncoder.transform_func_categorical"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.CategoricalEncoder.transform_func_categorical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms categorical values into their indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – pandas Series with categorical values</li>
+<li><strong>token_to_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Dict[str, int] with mapping from token to token index</li>
+<li><strong>missing_token_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – index for missing symbol</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.column_encoders.ColumnEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">ColumnEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>output_dim=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ColumnEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ColumnEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract super class of column encoders.
+Transforms value representation of columns (e.g. strings) into numerical representations to be
+fed into MxNet.</p>
+<p>Options for ColumnEncoders are:</p>
+<blockquote>
+<div>SequentialEncoder:  for sequences of symbols (e.g. characters or words),
+BowEncoder: bag-of-word representation, as sparse vectors
+CategoricalEncoder: for categorical variables
+NumericalEncoder: for numerical values</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> – List[str] with column names to be used as input for this ColumnEncoder</li>
+<li><strong>output_column</strong> – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>output_dim</strong> – dimensionality of encoded column values (1 for categorical, vocabulary size
+for sequential and BoW)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.ColumnEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ColumnEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ColumnEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a pandas Series of token indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – pandas Series of token indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas Series of tokens</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ColumnEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ColumnEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ColumnEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits a ColumnEncoder if needed (i.e. vocabulary/alphabet)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas DataFrame</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ColumnEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ColumnEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ColumnEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if ColumnEncoder (still) needs to be fitted to data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the column encoder does not require fitting (anymore or at all)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ColumnEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ColumnEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ColumnEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms values in one or more columns of DataFrame into a numpy array that can be fed
+into a Featurizer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of integers</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.column_encoders.ImageEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">ImageEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ImageEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ImageEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.column_encoders.ColumnEncoder</span></code></a></p>
+<p>Transforms images into number normalized, resized bitmap</p>
+<dl class="docutils">
+<dt>Note: we assume that a dataframe contains a column with the PATH to an image,</dt>
+<dd>ex: ~/images/[asin number].jpg</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – List[str] with a single column name referring to the DataFrame column
+with image file names</li>
+<li><strong>output_column</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>normalize</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to normalize or not, requires fitting</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.ImageEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ImageEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ImageEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises NotImplementedError, images cannot be decoded yet</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ImageEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ImageEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ImageEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits an ImageEncoder - Note doesn’t do anything now but leaving for future features</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ImageEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ImageEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ImageEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the column encoder does not require fitting (anymore or at all)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the encoder is fitted</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.ImageEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#ImageEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.ImageEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms string column of pandas dataframe with image file names into bitmaps
+represented as ndarray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">numpy array (rows by color-channels by image-height by image-width)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="datawig.column_encoders.NotFittedError">
+<em class="property">exception </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">NotFittedError</code><a class="reference internal" href="_modules/datawig/column_encoders.html#NotFittedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NotFittedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></p>
+<p>Error thrown when unfitted encoder is used</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.column_encoders.NumericalEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">NumericalEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#NumericalEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NumericalEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.column_encoders.ColumnEncoder</span></code></a></p>
+<p>Numerical encoder, concatenates columns in field_names into one vector
+fills nans with the mean of a column</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – List[str] with column names to be used as input for this ColumnEncoder</li>
+<li><strong>output_column</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>normalize</strong> – whether to normalize by the standard deviation or not, default True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.NumericalEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#NumericalEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NumericalEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Undoes the normalization, scales by scale and adds the mean</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – pandas Series (normalized)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pandas Series (unnormalized)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.NumericalEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#NumericalEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NumericalEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does nothing or fits the normalizer, if normalization is specified</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – DataFrame with numerical columns specified when
+instantiating NumericalEncoder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.NumericalEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#NumericalEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NumericalEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the column encoder does not require fitting (anymore or at all)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the encoder is fitted</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.NumericalEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#NumericalEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.NumericalEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates the numerical columns specified when instantiating the NumericalEncoder
+Normalizes features if specified in the NumericalEncoder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – DataFrame with numerical columns specified in NumericalEncoder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">np.array with numerical features (rows by number of numerical columns)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.column_encoders.SequentialEncoder">
+<em class="property">class </em><code class="descclassname">datawig.column_encoders.</code><code class="descname">SequentialEncoder</code><span class="sig-paren">(</span><em>input_columns</em>, <em>output_column=None</em>, <em>token_to_idx=None</em>, <em>max_tokens=1000</em>, <em>seq_len=500</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.column_encoders.ColumnEncoder</span></code></a></p>
+<p>Transforms sequence of characters into sequence of numbers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>input_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – List[str] with column names to be used as input for this ColumnEncoder</li>
+<li><strong>output_column</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Name of output field, used as field name in downstream MxNet iterator</li>
+<li><strong>token_to_idx</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – token to index mapping
+0 is reserved for missing tokens, 1 … max_tokens-1 for most to least frequent tokens</li>
+<li><strong>max_tokens</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – maximum number of tokens</li>
+<li><strong>seq_len</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – length of sequence, shorter sequences get padded to, longer sequences
+truncated at seq_len symbols</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.column_encoders.SequentialEncoder.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a pandas Series of token indices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>col</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – pandas Series of token index iterables</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pd.Series of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.SequentialEncoder.decode_seq">
+<code class="descname">decode_seq</code><span class="sig-paren">(</span><em>token_index_sequence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.decode_seq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.decode_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes a sequence of token indices into a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token_index_sequence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – an iterable of token indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">str the decoded string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.SequentialEncoder.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits a SequentialEncoder by extracting the character value histogram of a column and
+capping it at max_tokens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas data frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.SequentialEncoder.is_fitted">
+<code class="descname">is_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.is_fitted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.is_fitted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if ColumnEncoder (still) needs to be fitted to data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the column encoder does not require fitting (anymore or at all)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.column_encoders.SequentialEncoder.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms column of pandas dataframe into sequence of tokens</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas DataFrame</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;built-in function array&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">numpy array (rows by seq_len)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="datawig.column_encoders.SequentialEncoder.transform_func_seq_single">
+<em class="property">static </em><code class="descname">transform_func_seq_single</code><span class="sig-paren">(</span><em>string</em>, <em>token_to_idx</em>, <em>seq_len</em>, <em>missing_token_idx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/column_encoders.html#SequentialEncoder.transform_func_seq_single"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.column_encoders.SequentialEncoder.transform_func_seq_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms a single string into a sequence of token ids</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>string</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – a sequence of symbols as string</li>
+<li><strong>token_to_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Dict[str, int] with mapping from token to token index</li>
+<li><strong>seq_len</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – length of sequence</li>
+<li><strong>missing_token_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – index for missing symbol</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List[int] with transformed values</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.mxnet_input_symbols">
+<span id="datawig-mxnet-input-symbols"></span><h2>datawig.mxnet_input_symbols<a class="headerlink" href="#module-datawig.mxnet_input_symbols" title="Permalink to this headline">¶</a></h2>
+<p>DataWig MxNet input symbols:
+extract features or pass on encoded numerical representations of rows</p>
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.BowFeaturizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">BowFeaturizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>vocab_size=32768</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#BowFeaturizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.BowFeaturizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.mxnet_input_symbols.Featurizer</span></code></a></p>
+<p>Bag of words Featurizer for string data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the column</li>
+<li><strong>vocab_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of the vocabulary (number of hash buckets), defaults to 2**15</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.EmbeddingFeaturizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">EmbeddingFeaturizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>vocab_size=100</em>, <em>embed_dim=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#EmbeddingFeaturizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.EmbeddingFeaturizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.mxnet_input_symbols.Featurizer</span></code></a></p>
+<p>EmbeddingFeaturizer for categorical data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the column</li>
+<li><strong>vocab_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of the vocabulary, defaults to 100</li>
+<li><strong>embed_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – dimensionality of embedding, defaults to 10</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.Featurizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">Featurizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>latent_dim</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#Featurizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.Featurizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Featurizer for data that is encoded into numerical format with ColumnEncoder
+Is used to feed data into mxnet compute graph</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Field name of featurizer output for mxnet variable/symbols</li>
+<li><strong>latent_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimensionality of resulting features</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.mxnet_input_symbols.Featurizer.latent_symbol">
+<code class="descname">latent_symbol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#Featurizer.latent_symbol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.Featurizer.latent_symbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns mxnet Featurizer symbol
+:rtype: &lt;module ‘mxnet.symbol’ from ‘/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/symbol/__init__.py’&gt;
+:return: Featurizer as mx.symbol</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.ImageFeaturizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">ImageFeaturizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>fine_tune=False</em>, <em>layer_dim=None</em>, <em>model_name='densenet121'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#ImageFeaturizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.ImageFeaturizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.mxnet_input_symbols.Featurizer</span></code></a></p>
+<p>ImageFeaturizer extracts image features given an image using a standard network architecture</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the column</li>
+<li><strong>fine_tune</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – boolean that determines if entire image feature extraction model will be tuned</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Layer_dim:</th><td class="field-body"><p class="first last">list containing dimensions of fully connected layer after fwd pass through image
+extraction network. The length of this list corresponds to the number of FC layers,
+and the contents of the list are integers with corresponding hidden layer size</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.LSTMFeaturizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">LSTMFeaturizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>seq_len=500</em>, <em>vocab_size=40</em>, <em>embed_dim=50</em>, <em>num_hidden=50</em>, <em>num_layers=2</em>, <em>latent_dim=50</em>, <em>use_gpu=cpu(0)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#LSTMFeaturizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.LSTMFeaturizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.mxnet_input_symbols.Featurizer</span></code></a></p>
+<p>LSTMFeaturizer maps an input representing a sequence of symbols in [0, vocab_size] of shape
+(batch, seq_len) into a latent vector of shape (batch, latent_dim).
+The featurization is done with num_layers LSTM that has num_layers layers and num_hidden units</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – input symbol</li>
+<li><strong>seq_len</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – length of sequence</li>
+<li><strong>vocab_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of vocabulary</li>
+<li><strong>num_hidden</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of hidden units</li>
+<li><strong>num_layers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of layers</li>
+<li><strong>latent_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – latent dimensionality (number of hidden units in fully connected
+output layer of lstm)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.mxnet_input_symbols.NumericalFeaturizer">
+<em class="property">class </em><code class="descclassname">datawig.mxnet_input_symbols.</code><code class="descname">NumericalFeaturizer</code><span class="sig-paren">(</span><em>field_name</em>, <em>latent_dim=100</em>, <em>hidden_layers=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_input_symbols.html#NumericalFeaturizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_input_symbols.NumericalFeaturizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.mxnet_input_symbols.Featurizer" title="datawig.mxnet_input_symbols.Featurizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.mxnet_input_symbols.Featurizer</span></code></a></p>
+<p>NumericFeaturizer, a one hidden layer neural network with relu activations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the column</li>
+<li><strong>latent_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of hidden units</li>
+<li><strong>hidden_layers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of hidden layers</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.mxnet_output_symbols">
+<span id="datawig-mxnet-output-symbols"></span><h2>datawig.mxnet_output_symbols<a class="headerlink" href="#module-datawig.mxnet_output_symbols" title="Permalink to this headline">¶</a></h2>
+<p>DataWig imputer output modules</p>
+<dl class="function">
+<dt id="datawig.mxnet_output_symbols.make_categorical_loss">
+<code class="descclassname">datawig.mxnet_output_symbols.</code><code class="descname">make_categorical_loss</code><span class="sig-paren">(</span><em>latents</em>, <em>label_field_name</em>, <em>num_labels</em>, <em>final_fc_hidden_units=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_output_symbols.html#make_categorical_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_output_symbols.make_categorical_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate output symbol for categorical loss</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>latents</strong> (<em>&lt;module 'mxnet.symbol' from '/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/symbol/__init__.py'&gt;</em>) – MxNet symbol containing the concantenated latents from all featurizers</li>
+<li><strong>label_field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the label column</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Num_labels:</th><td class="field-body"><p class="first">number of labels contained in the label column (for prediction)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Final_fc_hidden_units:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">list of dimensions for the final fully connected layer.
+The length of this list corresponds to the number of FC
+layers, and the contents of the list are integers with
+corresponding hidden layer size.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">mxnet symbols for predictions and loss</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.mxnet_output_symbols.make_numerical_loss">
+<code class="descclassname">datawig.mxnet_output_symbols.</code><code class="descname">make_numerical_loss</code><span class="sig-paren">(</span><em>latents</em>, <em>label_field_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/mxnet_output_symbols.html#make_numerical_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.mxnet_output_symbols.make_numerical_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate output symbol for univariate numeric loss</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>label_field_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mxnet symbols for predictions and loss</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.iterators">
+<span id="datawig-iterators"></span><h2>datawig.iterators<a class="headerlink" href="#module-datawig.iterators" title="Permalink to this headline">¶</a></h2>
+<p>DataWig Iterators:
+used for feeding data in a pandas DataFrame into an MxNet Imputer Module</p>
+<dl class="class">
+<dt id="datawig.iterators.ImputerIter">
+<em class="property">class </em><code class="descclassname">datawig.iterators.</code><code class="descname">ImputerIter</code><span class="sig-paren">(</span><em>data_columns</em>, <em>label_columns</em>, <em>batch_size=512</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.io.DataIter</span></code></p>
+<p>Constructs an MxNet Iterator for an datawig.imputation.Imputer given a table in csv format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of featurizers, see datawig.column_featurizer</li>
+<li><strong>label_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of featurizers</li>
+<li><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of minibatches</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="datawig.iterators.ImputerIter.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>mxnet_label_predictions</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIter.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIter.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a list of mxnet label predictions, returns decoded symbols,
+Decoding is done with respective ColumnEncoder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mxnet_label_predictions</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Decoded labels</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.iterators.ImputerIter.mxnet_iterator_from_df">
+<code class="descname">mxnet_iterator_from_df</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIter.mxnet_iterator_from_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIter.mxnet_iterator_from_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes pandas DataFrame and returns set an MxNet iterator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">NDArrayIter</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">MxNet iterator</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.iterators.ImputerIter.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIter.next"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIter.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns next batch of data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataBatch</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="datawig.iterators.ImputerIter.provide_data">
+<code class="descname">provide_data</code><a class="headerlink" href="#datawig.iterators.ImputerIter.provide_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returning _provide_data
+:return:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="datawig.iterators.ImputerIter.provide_label">
+<code class="descname">provide_label</code><a class="headerlink" href="#datawig.iterators.ImputerIter.provide_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returning _provide_label
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="datawig.iterators.ImputerIter.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIter.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIter.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets Iterator</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.iterators.ImputerIterDf">
+<em class="property">class </em><code class="descclassname">datawig.iterators.</code><code class="descname">ImputerIterDf</code><span class="sig-paren">(</span><em>data_frame</em>, <em>data_columns</em>, <em>label_columns</em>, <em>batch_size=512</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/iterators.html#ImputerIterDf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.iterators.ImputerIterDf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#datawig.iterators.ImputerIter" title="datawig.iterators.ImputerIter"><code class="xref py py-class docutils literal notranslate"><span class="pre">datawig.iterators.ImputerIter</span></code></a></p>
+<p>Constructs an MxNet Iterator for an datawig.imputation.Imputer given a pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – pandas dataframe</li>
+<li><strong>data_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of featurizers, see datawig.column_featurizer</li>
+<li><strong>label_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#datawig.column_encoders.ColumnEncoder" title="datawig.column_encoders.ColumnEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColumnEncoder</span></code></a>]) – list of featurizers [CategoricalFeaturizer(‘field_name_1’)]</li>
+<li><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of minibatches</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.evaluation">
+<span id="datawig-evaluation"></span><h2>datawig.evaluation<a class="headerlink" href="#module-datawig.evaluation" title="Permalink to this headline">¶</a></h2>
+<p>DataWig evaluation functions</p>
+<dl class="function">
+<dt id="datawig.evaluation.evaluate_and_persist_metrics">
+<code class="descclassname">datawig.evaluation.</code><code class="descname">evaluate_and_persist_metrics</code><span class="sig-paren">(</span><em>true_labels_string</em>, <em>true_labels_int</em>, <em>predictions</em>, <em>predictions_proba</em>, <em>metrics_file=None</em>, <em>missing_symbol=None</em>, <em>numerical_labels={}</em>, <em>numerical_predictions={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/evaluation.html#evaluate_and_persist_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.evaluation.evaluate_and_persist_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute and save metrics in metrics_file
+:param true_labels_string: dict with true labels e.g. {‘color’:[“black”,”white”]}
+:param true_labels_int: dict with true label indices e.g. {‘color’:[0,1]}
+:param predictions: dict with predicted labels e.g. {‘color’:[“black”,”white”]}
+:param predictions_proba: dict with class likelihoods e.g. {‘color’:[0.1,0.9]}
+:param true_labels_int: dict with predicted class index e.g. {‘color’:[1,0]}
+:param metrics_file: path to <a href="#id3"><span class="problematic" id="id4">*</span></a>.json file to store metrics
+:param missing_symbol: dict with missing symbol (will be excluded from metrics) e.g.</p>
+<blockquote>
+<div>{‘color’: “MISSING”}</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>numerical_labels</strong> – dict with true numerical outputs</li>
+<li><strong>numerical_predictions</strong> – dict with predicted numerical outputs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.evaluation.evaluate_model_outputs">
+<code class="descclassname">datawig.evaluation.</code><code class="descname">evaluate_model_outputs</code><span class="sig-paren">(</span><em>df</em>, <em>attribute_column_name='attribute'</em>, <em>true_label_column_name='true_value'</em>, <em>predicted_label_column_name='predicted_value'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/evaluation.html#evaluate_model_outputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.evaluation.evaluate_model_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df</strong> – a dataframe with attribute | true_value | predicted_value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">precision/recall/f1/accuracy for each attribute (class frequency weighted) and for each column-label combination</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-datawig.utils">
+<span id="datawig-utils"></span><h2>datawig.utils<a class="headerlink" href="#module-datawig.utils" title="Permalink to this headline">¶</a></h2>
+<p>DataWig utility functions</p>
+<dl class="class">
+<dt id="datawig.utils.AccuracyMetric">
+<em class="property">class </em><code class="descclassname">datawig.utils.</code><code class="descname">AccuracyMetric</code><span class="sig-paren">(</span><em>name</em>, <em>label_index=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#AccuracyMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.AccuracyMetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.metric.EvalMetric</span></code></p>
+<p>Metrics tracking the accuracy, the index of the discrete label must be passed as argument.</p>
+<dl class="method">
+<dt id="datawig.utils.AccuracyMetric.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>labels</em>, <em>preds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#AccuracyMetric.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.AccuracyMetric.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the internal evaluation result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>labels</strong> (list of <cite>NDArray</cite>) – The labels of the data.</li>
+<li><strong>preds</strong> (list of <cite>NDArray</cite>) – Predicted values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="datawig.utils.ColumnOverwriteException">
+<em class="property">exception </em><code class="descclassname">datawig.utils.</code><code class="descname">ColumnOverwriteException</code><a class="reference internal" href="_modules/datawig/utils.html#ColumnOverwriteException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.ColumnOverwriteException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when an existing column of a pandas dataframe is about to be overwritten</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.utils.LogMetricCallBack">
+<em class="property">class </em><code class="descclassname">datawig.utils.</code><code class="descname">LogMetricCallBack</code><span class="sig-paren">(</span><em>tracked_metrics</em>, <em>patience=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#LogMetricCallBack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.LogMetricCallBack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tracked the metrics specified as arguments.
+Any mxnet metric whose name contains one of the argument will be tracked.</p>
+<dl class="method">
+<dt id="datawig.utils.LogMetricCallBack.check_regression">
+<code class="descname">check_regression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#LogMetricCallBack.check_regression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.LogMetricCallBack.check_regression" title="Permalink to this definition">¶</a></dt>
+<dd><p>If no improvement happens in “patience” number of steps then StopIteration exception is
+raised. This is an ugly mechanism but it is currently the only way to support this feature
+while using module api.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="datawig.utils.MeanSymbol">
+<em class="property">class </em><code class="descclassname">datawig.utils.</code><code class="descname">MeanSymbol</code><span class="sig-paren">(</span><em>name</em>, <em>symbol_index=0</em>, <em>output_names=None</em>, <em>label_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#MeanSymbol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.MeanSymbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">mxnet.metric.EvalMetric</span></code></p>
+<p>Metrics tracking the mean of a symbol, the index of the symbol must be passed as argument.</p>
+<dl class="method">
+<dt id="datawig.utils.MeanSymbol.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>_</em>, <em>preds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#MeanSymbol.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.MeanSymbol.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the internal evaluation result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>labels</strong> (list of <cite>NDArray</cite>) – The labels of the data.</li>
+<li><strong>preds</strong> (list of <cite>NDArray</cite>) – Predicted values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.gpu_device">
+<code class="descclassname">datawig.utils.</code><code class="descname">gpu_device</code><span class="sig-paren">(</span><em>gpu_number=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#gpu_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.gpu_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the gpu context for a given gpu device or None if that context is not available.
+Use it for auto-detecting whether a gpu is available on a machine with
+ctx = mx.gpu() if gpu_device() else mx.cpu()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gpu_number</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of the gpu, default 0</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">&lt;module ‘mxnet.context’ from ‘/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/context.py’&gt;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mxnet context of a gpu or none if not available</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.merge_dicts">
+<code class="descclassname">datawig.utils.</code><code class="descname">merge_dicts</code><span class="sig-paren">(</span><em>d1</em>, <em>d2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#merge_dicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.merge_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges two dicts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>d1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – A dictionary</li>
+<li><strong>d2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Another dictionary</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Merged dicts</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.normalize_dataframe">
+<code class="descclassname">datawig.utils.</code><code class="descname">normalize_dataframe</code><span class="sig-paren">(</span><em>data_frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#normalize_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.normalize_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function that normalizes strings of a DataFrame by converting to lower-case,
+stripping spaces, keeping only alphanumeric and space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">normalized data_frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.pad_to_square">
+<code class="descclassname">datawig.utils.</code><code class="descname">pad_to_square</code><span class="sig-paren">(</span><em>src</em>, <em>pad='const'</em>, <em>const_val=255</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#pad_to_square"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.pad_to_square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an HxWxC src image, if H!=W, resize such that new image size is
+square = max(H,W).
+Fill remaining rows / columns by ‘const’ or by ‘replicate’ border
+rows / columns.</p>
+<p>:param src : image as an mxnet ndarray (HxWxC)
+:param pad : ‘const’ or ‘replicate’</p>
+<blockquote>
+<div>Fill remaining rows / columns by ‘const’ or by ‘replicate’ border
+rows / columns.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>const_val</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – int
+The fill value to use in case of pad=’const’</td>
+</tr>
+</tbody>
+</table>
+<p>:return padded image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">&lt;module ‘mxnet.ndarray’ from ‘/Users/prathikn/anaconda3/lib/python3.6/site-packages/mxnet/ndarray/__init__.py’&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.rand_string">
+<code class="descclassname">datawig.utils.</code><code class="descname">rand_string</code><span class="sig-paren">(</span><em>length=16</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#rand_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.rand_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function for generating a random alphanumeric string of specified length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – length of the generated string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">random string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.random_split">
+<code class="descclassname">datawig.utils.</code><code class="descname">random_split</code><span class="sig-paren">(</span><em>data_frame</em>, <em>split_ratios=None</em>, <em>seed=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#random_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.random_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffles and splits a Data frame into partitions with specified percentages of data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – a pandas DataFrame</li>
+<li><strong>split_ratios</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – percentages of splits</li>
+<li><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – seed of random number generator</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.softmax">
+<code class="descclassname">datawig.utils.</code><code class="descname">softmax</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#softmax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute softmax values for each sets of scores in x.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="datawig.utils.stringify_list">
+<code class="descclassname">datawig.utils.</code><code class="descname">stringify_list</code><span class="sig-paren">(</span><em>cols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/datawig/utils.html#stringify_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#datawig.utils.stringify_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list with elements stringified</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development.html" class="btn btn-neutral float-right" title="Developer Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorials.html" class="btn btn-neutral" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

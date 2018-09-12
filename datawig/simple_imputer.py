@@ -58,28 +58,24 @@ class SimpleImputer():
                 only used for numerical input columns, ignored otherwise
 
 
-    Example usage:
+    Example usage: ::
 
+        from datawig.simple_imputer import SimpleImputer
+        import pandas as pd
 
-    from datawig.simple_imputer import SimpleImputer
-    import pandas as pd
+        df_train = pd.read_csv(/path/to/training/data.csv)
+        df_test = pd.read_csv(/path/to/test/data.csv)
 
-    fn_train = os.path.join(datawig_test_path, "resources", "shoes", "train.csv.gz")
-    fn_test = os.path.join(datawig_test_path, "resources", "shoes", "test.csv.gz")
+        output_path = "imputer_model"
 
-    df_train = pd.read_csv(training_data_files)
-    df_test = pd.read_csv(testing_data_files)
+        # set up imputer model
+        imputer = SimpleImputer( input_columns=['item_name', 'bullet_point'], output_column='brand')
 
-    output_path = "imputer_model"
+        # train the imputer model
+        imputer = imputer.fit(df_train)
 
-    # set up imputer model
-    imputer = SimpleImputer( input_columns=['item_name', 'bullet_point'], output_column='brand')
-
-    # train the imputer model
-    imputer = imputer.fit(df_train)
-
-    # obtain imputations
-    imputations = imputer.predict(df_test)
+        # obtain imputations
+        imputations = imputer.predict(df_test)
 
     """
 

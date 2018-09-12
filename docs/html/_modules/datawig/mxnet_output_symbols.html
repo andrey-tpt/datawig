@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.mxnet_output_symbols &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.mxnet_output_symbols</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.mxnet_output_symbols</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">DataWig imputer output modules</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">logger</span>
+
+
+<div class="viewcode-block" id="make_categorical_loss"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_output_symbols.make_categorical_loss">[docs]</a><span class="k">def</span> <span class="nf">make_categorical_loss</span><span class="p">(</span><span class="n">latents</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span>
+                          <span class="n">label_field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                          <span class="n">num_labels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                          <span class="n">final_fc_hidden_units</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Generate output symbol for categorical loss</span>
+
+<span class="sd">    :param latents: MxNet symbol containing the concantenated latents from all featurizers</span>
+<span class="sd">    :param label_field_name: name of the label column</span>
+<span class="sd">    :num_labels: number of labels contained in the label column (for prediction)</span>
+<span class="sd">    :final_fc_hidden_units: list of dimensions for the final fully connected layer.</span>
+<span class="sd">                            The length of this list corresponds to the number of FC </span>
+<span class="sd">                            layers, and the contents of the list are integers with</span>
+<span class="sd">                            corresponding hidden layer size.</span>
+<span class="sd">    :return: mxnet symbols for predictions and loss</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fully_connected</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">final_fc_hidden_units</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># generate prediction symbol</span>
+        <span class="n">fully_connected</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">latents</span><span class="p">,</span>
+            <span class="n">num_hidden</span><span class="o">=</span><span class="n">num_labels</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;label_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label_field_name</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">layer_size</span> <span class="o">=</span> <span class="n">final_fc_hidden_units</span>
+        <span class="k">with</span> <span class="n">mx</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">Prefix</span><span class="p">(</span><span class="s2">&quot;label_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label_field_name</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">layer_size</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">layer_size</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">fully_connected</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+                        <span class="n">data</span><span class="o">=</span><span class="n">latents</span><span class="p">,</span>
+                        <span class="n">num_hidden</span><span class="o">=</span><span class="n">layer</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">latents</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+                        <span class="n">data</span><span class="o">=</span><span class="n">latents</span><span class="p">,</span>
+                        <span class="n">num_hidden</span><span class="o">=</span><span class="n">layer</span><span class="p">)</span>
+
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">fully_connected</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">label_field_name</span><span class="p">)</span>
+
+    <span class="c1"># assign to 0.0 the label values larger than number of classes so that they</span>
+    <span class="c1"># do not contribute to the loss</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Building output of label </span><span class="si">{}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> classes </span><span class="se">\</span>
+<span class="s2">                 (including missing class)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+
+    <span class="n">num_labels_vec</span> <span class="o">=</span> <span class="n">label</span> <span class="o">*</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="n">num_labels</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">broadcast_lesser</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">num_labels_vec</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">label</span> <span class="o">*</span> <span class="n">indices</span>
+
+    <span class="c1"># goes from (batch, 1) to (batch,) as it is required for softmax output</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_outputs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">squeeze_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># mask entries when label is 0 (missing value)</span>
+    <span class="n">missing_labels</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">positive_mask</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">broadcast_greater</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">missing_labels</span><span class="p">)</span>
+
+    <span class="c1"># compute the cross entropy only when labels are positive</span>
+    <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">pick</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">fully_connected</span><span class="p">),</span> <span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="n">positive_mask</span>
+
+    <span class="c1"># normalize the cross entropy by the number of positive label</span>
+    <span class="n">num_positive_indices</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">positive_mask</span><span class="p">)</span>
+    <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">broadcast_div</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">,</span> <span class="n">num_positive_indices</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># todo because MakeLoss normalize even with normalization=&#39;null&#39; argument is used,</span>
+    <span class="c1"># we have to multiply by batch_size here</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">label</span><span class="p">))</span>
+    <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">broadcast_mul</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pred</span><span class="p">,</span> <span class="n">cross_entropy</span></div>
+
+
+<div class="viewcode-block" id="make_numerical_loss"><a class="viewcode-back" href="../../modules.html#datawig.mxnet_output_symbols.make_numerical_loss">[docs]</a><span class="k">def</span> <span class="nf">make_numerical_loss</span><span class="p">(</span><span class="n">latents</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span> <span class="n">label_field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    Generate output symbol for univariate numeric loss</span>
+
+<span class="sd">    :param label_field_name:</span>
+<span class="sd">    :return: mxnet symbols for predictions and loss</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># generate prediction symbol</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">latents</span><span class="p">,</span>
+        <span class="n">num_hidden</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;label_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label_field_name</span><span class="p">))</span>
+
+    <span class="n">target</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">label_field_name</span><span class="p">)</span>
+
+    <span class="c1"># squared loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">sym</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span> <span class="o">**</span> <span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pred</span><span class="p">,</span> <span class="n">loss</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

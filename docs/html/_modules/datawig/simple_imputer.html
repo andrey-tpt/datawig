@@ -1,0 +1,835 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>datawig.simple_imputer &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../README.html#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../README.html#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>datawig.simple_imputer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for datawig.simple_imputer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You may not</span>
+<span class="c1"># use this file except in compliance with the License. A copy of the License</span>
+<span class="c1"># is located at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either</span>
+<span class="c1"># express or implied. See the License for the specific language governing</span>
+<span class="c1"># permissions and limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">DataWig SimpleImputer:</span>
+<span class="sd">Uses some simple default encoders and featurizers that usually yield decent imputation quality</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">mxnet</span> <span class="k">as</span> <span class="nn">mx</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="k">import</span> <span class="n">is_numeric_dtype</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">logger</span><span class="p">,</span> <span class="n">gpu_device</span><span class="p">,</span> <span class="n">random_split</span><span class="p">,</span> <span class="n">rand_string</span>
+<span class="kn">from</span> <span class="nn">.imputer</span> <span class="k">import</span> <span class="n">Imputer</span>
+<span class="kn">from</span> <span class="nn">.column_encoders</span> <span class="k">import</span> <span class="n">BowEncoder</span><span class="p">,</span> <span class="n">CategoricalEncoder</span><span class="p">,</span> <span class="n">NumericalEncoder</span><span class="p">,</span> <span class="n">ImageEncoder</span><span class="p">,</span> \
+    <span class="n">ColumnEncoder</span>
+<span class="kn">from</span> <span class="nn">.mxnet_input_symbols</span> <span class="k">import</span> <span class="n">BowFeaturizer</span><span class="p">,</span> <span class="n">NumericalFeaturizer</span><span class="p">,</span> <span class="n">ImageFeaturizer</span><span class="p">,</span> <span class="n">Featurizer</span>
+
+
+<div class="viewcode-block" id="SimpleImputer"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer">[docs]</a><span class="k">class</span> <span class="nc">SimpleImputer</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    SimpleImputer model based on n-grams of concatenated strings of input columns, concatenated</span>
+<span class="sd">    numerical features and image features, if provided.</span>
+
+<span class="sd">    Given a data frame with string columns, a model is trained to predict observed values in label</span>
+<span class="sd">    column using values observed in other columns.</span>
+
+<span class="sd">    The model can then be used to impute missing values.</span>
+
+<span class="sd">    :param input_columns: list of input column names (as strings)</span>
+<span class="sd">    :param output_column: output column name (as string)</span>
+<span class="sd">    :param output_path: path to store model and metrics</span>
+<span class="sd">    :param num_hash_buckets: number of hash buckets used for the n-gram hashing vectorizer, only</span>
+<span class="sd">                                used for non-numerical input columns, ignored otherwise</span>
+<span class="sd">    :param num_labels: number of imputable values considered after, only used for non-numerical</span>
+<span class="sd">                        input columns, ignored otherwise</span>
+<span class="sd">    :param tokens: string, &#39;chars&#39; or &#39;words&#39; (default &#39;chars&#39;), determines tokenization strategy</span>
+<span class="sd">                for n-grams, only used for non-numerical input columns, ignored otherwise</span>
+<span class="sd">    :param latent_dim: int, number of latent dimensions for hidden layer of NumericalFeaturizers;</span>
+<span class="sd">                only used for numerical input columns, ignored otherwise</span>
+
+
+<span class="sd">    Example usage: ::</span>
+
+<span class="sd">        from datawig.simple_imputer import SimpleImputer</span>
+<span class="sd">        import pandas as pd</span>
+
+<span class="sd">        df_train = pd.read_csv(/path/to/training/data.csv)</span>
+<span class="sd">        df_test = pd.read_csv(/path/to/test/data.csv)</span>
+
+<span class="sd">        output_path = &quot;imputer_model&quot;</span>
+
+<span class="sd">        # set up imputer model</span>
+<span class="sd">        imputer = SimpleImputer( input_columns=[&#39;item_name&#39;, &#39;bullet_point&#39;], output_column=&#39;brand&#39;)</span>
+
+<span class="sd">        # train the imputer model</span>
+<span class="sd">        imputer = imputer.fit(df_train)</span>
+
+<span class="sd">        # obtain imputations</span>
+<span class="sd">        imputations = imputer.predict(df_test)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                 <span class="n">output_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">num_hash_buckets</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">15</span><span class="p">),</span>
+                 <span class="n">num_labels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">tokens</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;chars&#39;</span><span class="p">,</span>
+                 <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">hidden_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">input_columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SimpleImputer.input_columns must be str type, was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">col</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output_column</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SimpleImputer.output_column must be str type, was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">output_column</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span> <span class="o">=</span> <span class="n">input_columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_column</span> <span class="o">=</span> <span class="n">output_column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_hash_buckets</span> <span class="o">=</span> <span class="n">num_hash_buckets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_labels</span> <span class="o">=</span> <span class="n">num_labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="n">latent_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span> <span class="o">=</span> <span class="n">hidden_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="n">output_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hpo_results</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="SimpleImputer.check_data_types"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.check_data_types">[docs]</a>    <span class="k">def</span> <span class="nf">check_data_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Checks whether a column contains string, numeric or image file data</span>
+
+<span class="sd">        :param data_frame:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span> <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="n">c</span><span class="p">])]</span>
+        <span class="n">other_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_columns</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">))</span>
+
+        <span class="n">string_cols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">image_cols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">valid_ext</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="s1">&#39;.gif&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">other_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_frame</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span>
+                    <span class="n">x</span> <span class="ow">in</span> <span class="n">data_frame</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">valid_ext</span><span class="p">):</span>
+                <span class="n">image_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">string_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span> <span class="o">=</span> <span class="n">string_cols</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span> <span class="o">=</span> <span class="n">image_cols</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;Assuming </span><span class="si">{}</span><span class="s2"> numeric input columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">),</span>
+                                                           <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">)))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming </span><span class="si">{}</span><span class="s2"> string input columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">),</span>
+                                                                  <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">)))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming </span><span class="si">{}</span><span class="s2"> image input columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">),</span>
+                                                                 <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.fit_hpo"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.fit_hpo">[docs]</a>    <span class="k">def</span> <span class="nf">fit_hpo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">train_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                <span class="n">test_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">ctx</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">gpu_device</span><span class="p">()</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span>
+                <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
+                <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="n">patience</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="n">test_split</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">weight_decay</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+                <span class="n">num_hash_bucket_candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">tokens_candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">latent_dim_candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">hidden_layers_candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">hpo_max_train_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
+                <span class="n">normalize_numeric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="n">layer_dim</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">final_fc_hidden_units</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">learning_rate_candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Fits an imputer model with gridsearch hyperparameter optimization (hpo)</span>
+
+<span class="sd">        Grids are specified using the *_candidates arguments.</span>
+
+<span class="sd">        :param train_df: training data as dataframe</span>
+<span class="sd">        :param test_df: test data as dataframe; if not provided, a ratio of test_split of the</span>
+<span class="sd">                            training data are used as test data</span>
+<span class="sd">        :param ctx: mxnet context (default mx.cpu())</span>
+<span class="sd">        :param learning_rate: learning rate for stochastic gradient descent (default 4e-4)</span>
+<span class="sd">        :param num_epochs: maximal number of training epochs (default 10)</span>
+<span class="sd">        :param patience: used for early stopping; after [patience] epochs with no improvement,</span>
+<span class="sd">                            training is stopped. (default 3)</span>
+<span class="sd">        :param test_split: if no test_df is provided this is the ratio of test data to be held</span>
+<span class="sd">                            separate for determining model convergence</span>
+<span class="sd">        :param weight_decay: regularizer (default 0)</span>
+<span class="sd">        :param batch_size (default 16)</span>
+<span class="sd">        :param num_hash_bucket_candidates: candidates for gridsearch hyperparameter</span>
+<span class="sd">                            optimization (default [2**10, 2**13, 2**15, 2**18, 2**20])</span>
+<span class="sd">        :param tokens_candidates: candidates for tokenization (default [&#39;words&#39;, &#39;chars&#39;])</span>
+<span class="sd">        :param latent_dim_candidates: candidates for latent dimensionality of</span>
+<span class="sd">                            numerical features (default [10, 50, 100])</span>
+<span class="sd">        :param hidden_layers_candidates: candidates for number of hidden layers of</span>
+<span class="sd">                            numerical features (default [0, 1, 2])</span>
+<span class="sd">        :param learning_rate_candidates: candidates for learning rate (default [1e-1, 1e-2, 1e-3])</span>
+<span class="sd">        :param hpo_max_train_samples: training set size for hyperparameter optimization</span>
+<span class="sd">        :param normalize_numeric: boolean indicating whether or not to normalize numeric values</span>
+<span class="sd">        :param layer_dim: list of lists w/ dimensions for FC layers after the image</span>
+<span class="sd">                            featurization network (NOTE: for HPO, this expects a list of lists)</span>
+<span class="sd">        :param final_fc_hidden_units: list of lists w/ dimensions for FC layers after the</span>
+<span class="sd">                            final concatenation (NOTE: for HPO, this expects a list of lists)</span>
+<span class="sd">        :return: trained SimpleImputer model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">weight_decay</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">weight_decay</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">num_hash_bucket_candidates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">num_hash_bucket_candidates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">20</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">tokens_candidates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tokens_candidates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;words&#39;</span><span class="p">,</span> <span class="s1">&#39;chars&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">latent_dim_candidates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">latent_dim_candidates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">hidden_layers_candidates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hidden_layers_candidates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">layer_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layer_dim</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1024</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="n">final_fc_hidden_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">final_fc_hidden_units</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="n">learning_rate_candidates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">learning_rate_candidates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-1</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_data_types</span><span class="p">(</span><span class="n">train_df</span><span class="p">)</span>
+
+        <span class="c1"># enable users to define a fixed weight decay</span>
+        <span class="n">store_weight_decay</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weight_decay</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">store_weight_decay</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weight_decay</span><span class="p">)</span>
+            <span class="n">weight_decay</span> <span class="o">=</span> <span class="n">store_weight_decay</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">num_hash_bucket_candidates</span><span class="p">,</span> <span class="n">tokens_candidates</span><span class="p">,</span>
+                                           <span class="n">learning_rate_candidates</span><span class="p">)),</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">,</span> <span class="s1">&#39;tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">hps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                    <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">num_hash_bucket_candidates</span><span class="p">,</span> <span class="n">tokens_candidates</span><span class="p">,</span> <span class="n">layer_dim</span><span class="p">,</span>
+                                           <span class="n">final_fc_hidden_units</span><span class="p">,</span> <span class="n">weight_decay</span><span class="p">,</span>
+                                           <span class="n">learning_rate_candidates</span><span class="p">)),</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">,</span> <span class="s1">&#39;tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;layer_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;final_fc_dim&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;weight_decay&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">hps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">latent_dim_candidates</span><span class="p">,</span> <span class="n">hidden_layers_candidates</span><span class="p">,</span>
+                                       <span class="n">learning_rate_candidates</span><span class="p">)),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;latent_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden_layers&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span>
+                    <span class="n">num_hash_bucket_candidates</span><span class="p">,</span>
+                    <span class="n">tokens_candidates</span><span class="p">,</span>
+                    <span class="n">latent_dim_candidates</span><span class="p">,</span>
+                    <span class="n">hidden_layers_candidates</span><span class="p">,</span>
+                    <span class="n">learning_rate_candidates</span><span class="p">)),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">,</span> <span class="s1">&#39;tokens&#39;</span><span class="p">,</span> <span class="s1">&#39;latent_dim&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden_layers&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;learning_rate&#39;</span><span class="p">])</span>
+
+        <span class="n">label_column</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]):</span>
+            <span class="n">label_column</span> <span class="o">=</span> <span class="p">[</span><span class="n">NumericalEncoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="n">normalize_numeric</span><span class="p">)]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming numeric output column: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label_column</span> <span class="o">=</span> <span class="p">[</span><span class="n">CategoricalEncoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_labels</span><span class="p">)]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming categorical output column: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">))</span>
+
+        <span class="n">train_df_hpo</span><span class="p">,</span> <span class="n">test_df_hpo</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span>
+            <span class="n">train_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_df</span><span class="p">),</span> <span class="n">hpo_max_train_samples</span><span class="p">))</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+
+        <span class="n">hpo_results</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">hyper_param</span> <span class="ow">in</span> <span class="n">hps</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+
+            <span class="n">data_encoders</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">string_feature_column</span> <span class="o">=</span> <span class="s2">&quot;ngram_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">BowEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">,</span>
+                                             <span class="n">output_column</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span>
+                                             <span class="n">max_tokens</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">],</span>
+                                             <span class="n">tokens</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">])]</span>
+                <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">BowFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span>
+                                               <span class="n">vocab_size</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">])]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">numerical_feature_column</span> <span class="o">=</span> <span class="s2">&quot;numerical_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">NumericalEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">,</span>
+                                                   <span class="n">output_column</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">,</span>
+                                                   <span class="n">normalize</span><span class="o">=</span><span class="n">normalize_numeric</span><span class="p">)]</span>
+                <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">NumericalFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">,</span>
+                                                     <span class="n">latent_dim</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;latent_dim&#39;</span><span class="p">],</span>
+                                                     <span class="n">hidden_layers</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;hidden_layers&#39;</span><span class="p">])]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">image_feature_column</span> <span class="o">=</span> <span class="s2">&quot;image_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ImageEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">,</span>
+                                               <span class="n">output_column</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">)]</span>
+                <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span>
+                    <span class="n">ImageFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">,</span>
+                                    <span class="n">layer_dim</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;layer_dim&#39;</span><span class="p">])]</span>
+
+                <span class="c1"># Create and fit imputer</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">data_encoders</span><span class="o">=</span><span class="n">data_encoders</span><span class="p">,</span>
+                                  <span class="n">data_featurizers</span><span class="o">=</span><span class="n">data_columns</span><span class="p">,</span>
+                                  <span class="n">label_encoders</span><span class="o">=</span><span class="n">label_column</span><span class="p">,</span>
+                                  <span class="n">output_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span> \
+                    <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df_hpo</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+                         <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">ctx</span><span class="p">,</span>
+                         <span class="n">learning_rate</span><span class="p">,</span>
+                         <span class="n">num_epochs</span><span class="p">,</span>
+                         <span class="n">patience</span><span class="p">,</span>
+                         <span class="n">test_split</span><span class="p">,</span>
+                         <span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;weight_decay&#39;</span><span class="p">],</span>
+                         <span class="n">batch_size</span><span class="p">,</span>
+                         <span class="n">final_fc_hidden_units</span><span class="o">=</span><span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;final_fc_dim&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">data_encoders</span><span class="o">=</span><span class="n">data_encoders</span><span class="p">,</span>
+                                  <span class="n">data_featurizers</span><span class="o">=</span><span class="n">data_columns</span><span class="p">,</span>
+                                  <span class="n">label_encoders</span><span class="o">=</span><span class="n">label_column</span><span class="p">,</span>
+                                  <span class="n">output_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span> \
+                    <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df_hpo</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+                         <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">ctx</span><span class="p">,</span>
+                         <span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">],</span>
+                         <span class="n">num_epochs</span><span class="p">,</span>
+                         <span class="n">patience</span><span class="p">,</span>
+                         <span class="n">test_split</span><span class="p">,</span>
+                         <span class="n">weight_decay</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                         <span class="n">batch_size</span><span class="p">)</span>
+
+            <span class="n">_</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform_and_compute_metrics</span><span class="p">(</span><span class="n">test_df_hpo</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="s2">&quot;Trained numerical imputer for hps </span><span class="si">{}</span><span class="s2"> on </span><span class="si">{}</span><span class="s2"> samples, MSE: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">hyper_param</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_df_hpo</span><span class="p">),</span>
+                        <span class="n">metrics</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]))</span>
+                <span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="s2">&quot;Trained categorical imputer for hps </span><span class="si">{}</span><span class="s2"> on </span><span class="si">{}</span><span class="s2"> samples, F1: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">hyper_param</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_df_hpo</span><span class="p">),</span>
+                        <span class="n">metrics</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">][</span>
+                            <span class="s1">&#39;avg_f1&#39;</span><span class="p">]))</span>
+                <span class="n">hyper_param</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">][</span><span class="s1">&#39;avg_f1&#39;</span><span class="p">]</span>
+
+            <span class="n">hpo_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hyper_param</span><span class="p">)</span>
+
+        <span class="n">hpo_results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hpo_results</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]):</span>
+            <span class="n">best_hps</span> <span class="o">=</span> <span class="n">hpo_results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Best hyperparameters for numerical imputation </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">best_hps</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">best_hps</span> <span class="o">=</span> <span class="n">hpo_results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;f1&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Best hyperparameters for categorical imputation </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">best_hps</span><span class="p">))</span>
+
+        <span class="n">data_encoders</span><span class="p">,</span> <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_encoders</span> <span class="o">=</span> <span class="p">[</span><span class="n">BowEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">,</span>
+                                        <span class="n">output_column</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span>
+                                        <span class="n">max_tokens</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">],</span>
+                                        <span class="n">tokens</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;tokens&#39;</span><span class="p">])]</span>
+            <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">BowFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span>
+                                          <span class="n">vocab_size</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;num_hash_buckets&#39;</span><span class="p">])]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">NumericalEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">,</span>
+                                               <span class="n">output_column</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">,</span>
+                                               <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+            <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">NumericalFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">,</span>
+                                                 <span class="n">latent_dim</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;latent_dim&#39;</span><span class="p">],</span>
+                                                 <span class="n">hidden_layers</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;hidden_layers&#39;</span><span class="p">]</span>
+                                                 <span class="p">)]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ImageEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">,</span>
+                                           <span class="n">output_column</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">)]</span>
+            <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">ImageFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">,</span> <span class="n">layer_dim</span><span class="o">=</span><span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;layer_dim&#39;</span><span class="p">])]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">data_encoders</span><span class="o">=</span><span class="n">data_encoders</span><span class="p">,</span>
+                               <span class="n">data_featurizers</span><span class="o">=</span><span class="n">data_columns</span><span class="p">,</span>
+                               <span class="n">label_encoders</span><span class="o">=</span><span class="n">label_column</span><span class="p">,</span>
+                               <span class="n">output_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Retraining on </span><span class="si">{}</span><span class="s2"> samples&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_df</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">output_path</span>
+
+        <span class="c1"># Create and fit imputer with best HPs</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
+                                            <span class="n">patience</span><span class="p">,</span> <span class="n">test_split</span><span class="p">,</span>
+                                            <span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;weight_decay&#39;</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">,</span>
+                                            <span class="n">best_hps</span><span class="p">[</span><span class="s1">&#39;final_fc_dim&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
+                                            <span class="n">patience</span><span class="p">,</span> <span class="n">test_split</span><span class="p">,</span> <span class="n">weight_decay</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hpo_results</span> <span class="o">=</span> <span class="n">hpo_results</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.fit"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">train_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+            <span class="n">test_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">ctx</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">gpu</span><span class="p">()</span> <span class="k">if</span> <span class="n">gpu_device</span><span class="p">()</span> <span class="k">else</span> <span class="n">mx</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span>
+            <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4e-3</span><span class="p">,</span>
+            <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="n">patience</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="n">test_split</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">weight_decay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+            <span class="n">layer_dim</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">final_fc_hidden_units</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">calibrate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Trains and stores imputer model</span>
+
+<span class="sd">        :param train_df: training data as dataframe</span>
+<span class="sd">        :param test_df: test data as dataframe; if not provided, a ratio of test_split of the</span>
+<span class="sd">                            training data are used as test data</span>
+<span class="sd">        :param ctx: mxnet context (default mx.gpu() if available, otherwise mx.cpu())</span>
+<span class="sd">        :param learning_rate: learning rate for stochastic gradient descent (default 4e-4)</span>
+<span class="sd">        :param num_epochs: maximal number of training epochs (default 10)</span>
+<span class="sd">        :param patience: used for early stopping; after [patience] epochs with no improvement,</span>
+<span class="sd">                            training is stopped. (default 3)</span>
+<span class="sd">        :param test_split: if no test_df is provided this is the ratio of test data to be held</span>
+<span class="sd">                            separate for determining model convergence</span>
+<span class="sd">        :param weight_decay: regularizer (default 0)</span>
+<span class="sd">        :param batch_size (default 16)</span>
+<span class="sd">        :param layer_dim: list dimensions for FC layers after the image featurization network</span>
+<span class="sd">        :param final_fc_hidden_units: list dimensions for FC layers after the final concatenation</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">layer_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">layer_dim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">final_fc_hidden_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">final_fc_hidden_units</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_data_types</span><span class="p">(</span><span class="n">train_df</span><span class="p">)</span>
+
+        <span class="n">data_encoders</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">string_feature_column</span> <span class="o">=</span> <span class="s2">&quot;ngram_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">BowEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">string_columns</span><span class="p">,</span>
+                                         <span class="n">output_column</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span>
+                                         <span class="n">max_tokens</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_hash_buckets</span><span class="p">,</span>
+                                         <span class="n">tokens</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tokens</span><span class="p">)]</span>
+            <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">BowFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">string_feature_column</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_hash_buckets</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numerical_feature_column</span> <span class="o">=</span> <span class="s2">&quot;numerical_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+            <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">NumericalEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">numeric_columns</span><span class="p">,</span>
+                                               <span class="n">output_column</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">)]</span>
+
+            <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">NumericalFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">numerical_feature_column</span><span class="p">,</span> <span class="n">latent_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span><span class="p">,</span>
+                                    <span class="n">hidden_layers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">image_feature_column</span> <span class="o">=</span> <span class="s2">&quot;image_features-&quot;</span> <span class="o">+</span> <span class="n">rand_string</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">data_encoders</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ImageEncoder</span><span class="p">(</span><span class="n">input_columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_columns</span><span class="p">,</span>
+                                           <span class="n">output_column</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">)]</span>
+            <span class="n">data_columns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ImageFeaturizer</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="n">image_feature_column</span><span class="p">,</span> <span class="n">layer_dim</span><span class="o">=</span><span class="n">layer_dim</span><span class="p">)]</span>
+
+        <span class="n">label_column</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]):</span>
+            <span class="n">label_column</span> <span class="o">=</span> <span class="p">[</span><span class="n">NumericalEncoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming numeric output column: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label_column</span> <span class="o">=</span> <span class="p">[</span><span class="n">CategoricalEncoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_labels</span><span class="p">)]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Assuming categorical output column: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">data_encoders</span><span class="o">=</span><span class="n">data_encoders</span><span class="p">,</span>
+                               <span class="n">data_featurizers</span><span class="o">=</span><span class="n">data_columns</span><span class="p">,</span>
+                               <span class="n">label_encoders</span><span class="o">=</span><span class="n">label_column</span><span class="p">,</span>
+                               <span class="n">output_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">output_path</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">patience</span><span class="p">,</span>
+                                        <span class="n">test_split</span><span class="p">,</span>
+                                        <span class="n">weight_decay</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
+                                        <span class="n">final_fc_hidden_units</span><span class="o">=</span><span class="n">final_fc_hidden_units</span><span class="p">,</span>
+                                        <span class="n">calibrate</span><span class="o">=</span><span class="n">calibrate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.predict"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                <span class="n">precision_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">imputation_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;_imputed&quot;</span><span class="p">,</span>
+                <span class="n">score_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;_imputed_proba&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Imputes most likely value if it is above a certain precision threshold determined on the</span>
+<span class="sd">            validation set</span>
+<span class="sd">        Precision is calculated as part of the `datawig.evaluate_and_persist_metrics` function.</span>
+
+<span class="sd">        Returns original dataframe with imputations and respective likelihoods as estimated by</span>
+<span class="sd">        imputation model; in additional columns; names of imputation columns are that of the label</span>
+<span class="sd">        suffixed with `imputation_suffix`, names of respective likelihood columns are suffixed</span>
+<span class="sd">        with `score_suffix`</span>
+
+<span class="sd">        :param data_frame:   data frame (pandas)</span>
+<span class="sd">        :param precision_threshold: double between 0 and 1 indicating precision threshold</span>
+<span class="sd">        :param imputation_suffix: suffix for imputation columns</span>
+<span class="sd">        :param score_suffix: suffix for imputation score columns</span>
+<span class="sd">        :return: data_frame original dataframe with imputations and likelihood in additional column</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">imputations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">precision_threshold</span><span class="p">,</span> <span class="n">imputation_suffix</span><span class="p">,</span>
+                                           <span class="n">score_suffix</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">imputations</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.save"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Saves model to disk; mxnet module and imputer are stored separately</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">simple_imputer_params</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;imputer&#39;</span><span class="p">}</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">simple_imputer_params</span><span class="p">,</span>
+                    <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;simple_imputer.pickle&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.load_metrics"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.load_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">load_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads various metrics of the internal imputer model, returned as dictionary</span>
+<span class="sd">        :return: Dict[str,Any]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">metrics_path</span><span class="p">),</span> <span class="s2">&quot;Metrics File </span><span class="si">{}</span><span class="s2"> not found&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">metrics_path</span><span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">metrics_path</span><span class="p">))[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_column</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+<div class="viewcode-block" id="SimpleImputer.load"><a class="viewcode-back" href="../../modules.html#datawig.simple_imputer.SimpleImputer.load">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Loads model from output path</span>
+
+<span class="sd">        :param output_path: output_path field of trained SimpleImputer model</span>
+<span class="sd">        :return: SimpleImputer model</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Output path for loading Imputer </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">output_path</span><span class="p">))</span>
+        <span class="c1"># load pickled model</span>
+        <span class="n">simple_imputer_params</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;simple_imputer.pickle&quot;</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+
+        <span class="c1"># get constructor args</span>
+        <span class="n">constructor_args</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">constructor_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">constructor_args</span> <span class="k">if</span> <span class="n">arg</span> <span class="o">!=</span> <span class="s1">&#39;self&#39;</span><span class="p">]</span>
+
+        <span class="c1"># get those params that are needed for __init__</span>
+        <span class="n">constructor_params</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">simple_imputer_params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span>
+                              <span class="n">k</span> <span class="ow">in</span> <span class="n">constructor_args</span><span class="p">}</span>
+        <span class="c1"># instantiate SimpleImputer</span>
+        <span class="n">simple_imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="o">**</span><span class="n">constructor_params</span><span class="p">)</span>
+        <span class="c1"># set all other fields</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">simple_imputer_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">constructor_args</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">simple_imputer</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="c1"># set imputer model</span>
+        <span class="n">simple_imputer</span><span class="o">.</span><span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">simple_imputer</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DataWig - Imputation for Tables &mdash; DataWig  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="Welcome to DataWig’s documentation!" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DataWig
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DataWig - Imputation for Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">Installation with pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cpu">CPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu">GPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-datawig">Running DataWig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executing-tests">Executing Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#overview-of-datawig">Overview of DataWig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#columnencoder-column-encoder-py">ColumnEncoder (<em>column_encoder.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#featurizer-mxnet-input-symbol-py">Featurizer (<em>mxnet_input_symbol.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#simpleimputer-simple-imputer-py">SimpleImputer (<em>simple_imputer.py</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#imputer-imputer-py">Imputer (<em>imputer.py</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.simple_imputer">datawig.simple_imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.imputer">datawig.imputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.column_encoders">datawig.column_encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.mxnet_input_symbols">datawig.mxnet_input_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.mxnet_output_symbols">datawig.mxnet_output_symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.iterators">datawig.iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.evaluation">datawig.evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-datawig.utils">datawig.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developer-guidelines">Developer Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#building-the-documentation">Building the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#unit-integration-tests">Unit &amp; Integration Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#licensing">Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DataWig</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>DataWig - Imputation for Tables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datawig-imputation-for-tables">
+<span id="datawig-imputation-for-tables"></span><h1>DataWig - Imputation for Tables<a class="headerlink" href="#datawig-imputation-for-tables" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/datawig.svg"><img alt="PyPI version" src="https://badge.fury.io/py/datawig.svg" /></a>
+<a class="reference external" href="https://github.com/awslabs/datawig/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/awslabs/datawig.svg" /></a>
+<a class="reference external" href="https://github.com/awslabs/datawig/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/awslabs/datawig.svg" /></a>
+<a class="reference external" href="https://travis-ci.org/awslabs/datawig"><img alt="Build Status" src="https://travis-ci.org/awslabs/datawig.svg?branch=master" /></a></p>
+<p>DataWig learns models to impute missing values in tables.</p>
+<p>For each to-be-imputed column, DataWig trains a supervised machine learning model
+to predict the observed values in that column using the data from other columns.</p>
+<div class="section" id="dependencies">
+<span id="dependencies"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>DataWig requires:</p>
+<ul class="simple">
+<li><strong>Python3</strong></li>
+<li>MXNet 1.3.0</li>
+<li>numpy</li>
+<li>pandas</li>
+<li>scikit-learn</li>
+</ul>
+</div>
+<div class="section" id="installation-with-pip">
+<span id="installation-with-pip"></span><h2>Installation with pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cpu">
+<span id="cpu"></span><h3>CPU<a class="headerlink" href="#cpu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; pip3 install datawig
+</pre></div>
+</div>
+</div>
+<div class="section" id="gpu">
+<span id="gpu"></span><h3>GPU<a class="headerlink" href="#gpu" title="Permalink to this headline">¶</a></h3>
+<p>If you want to run DataWig on a GPU you need to make sure your version of Apache MXNet Incubating contains the GPU bindings.
+Depending on your version of CUDA, you can do this by running the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; wget https://raw.githubusercontent.com/awslabs/datawig/master/requirements/requirements.gpu-cu<span class="si">${</span><span class="nv">CUDA_VERSION</span><span class="si">}</span>.txt
+&gt; pip install datawig --no-deps -r requirements.gpu-cu<span class="si">${</span><span class="nv">CUDA_VERSION</span><span class="si">}</span>.txt
+&gt; rm requirements.gpu-cu<span class="si">${</span><span class="nv">CUDA_VERSION</span><span class="si">}</span>.txt
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">${CUDA_VERSION}</span></code> can be <code class="docutils literal notranslate"><span class="pre">75</span></code> (7.5), <code class="docutils literal notranslate"><span class="pre">80</span></code> (8.0), <code class="docutils literal notranslate"><span class="pre">90</span></code> (9.0), or <code class="docutils literal notranslate"><span class="pre">91</span></code> (9.1).</p>
+</div>
+</div>
+<div class="section" id="running-datawig">
+<span id="running-datawig"></span><h2>Running DataWig<a class="headerlink" href="#running-datawig" title="Permalink to this headline">¶</a></h2>
+<p>The DataWig API expects your data as a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">pandas DataFrame</a>. Here is an example of how the dataframe might look:</p>
+<p><img alt="datawig dataframe example" src="https://s3.amazonaws.com/datawig/example_data/df_example_image.png" /></p>
+<p>For most use cases, the <code class="docutils literal notranslate"><span class="pre">SimpleImputer</span></code> class is the best starting point. DataWig expects you to provide the column name of the column you would like to impute values for (called <code class="docutils literal notranslate"><span class="pre">output_column</span></code> below) and some column names that contain values that you deem useful for imputation (called <code class="docutils literal notranslate"><span class="pre">input_columns</span></code> below).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="kn">from</span> <span class="nn">datawig</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+   <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+   <span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/path/to/train/data.csv&#39;</span><span class="p">)</span>
+   <span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/path/to/test/data.csv&#39;</span><span class="p">)</span>
+
+   <span class="c1">#Initialize a SimpleImputer model</span>
+   <span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span>
+       <span class="n">input_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;item_name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="c1">#columns containing information about the column we want to impute</span>
+       <span class="n">output_column</span><span class="o">=</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span> <span class="c1">#the column we&#39;d like to impute values for</span>
+       <span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;imputer_model&#39;</span> <span class="c1">#stores model data and metrics</span>
+       <span class="p">)</span>
+   
+   <span class="c1">#Fit an imputer model on the train data</span>
+   <span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
+
+   <span class="c1">#Impute missing values and return original dataframe with predictions</span>
+   <span class="n">imputed</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to have more control over the types of models and preprocessings, the <code class="docutils literal notranslate"><span class="pre">Imputer</span></code> class allows directly specifying all relevant model features and parameters.</p>
+<p>For details on usage, refer to the provided <a class="reference external" href="./examples">examples</a>.</p>
+</div>
+<div class="section" id="executing-tests">
+<span id="executing-tests"></span><h2>Executing Tests<a class="headerlink" href="#executing-tests" title="Permalink to this headline">¶</a></h2>
+<p>Clone the repository from git and set up virtualenv in the root dir of the package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+</pre></div>
+</div>
+<p>Install the package from local sources:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Run tests:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">./</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+<div class="section" id="acknowledgments">
+<span id="acknowledgments"></span><h3>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h3>
+<p>Thanks to <a class="reference external" href="https://github.com/dgreenberg">David Greenberg</a> for the package name.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to DataWig’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon.com, Inc. or its affiliates. All Rights Reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
